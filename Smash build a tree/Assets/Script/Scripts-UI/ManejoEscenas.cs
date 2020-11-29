@@ -5,10 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class ManejoEscenas : MonoBehaviour
 {
+
+    public GameObject panelPrincipal;
+    public GameObject panelSeleccion;
+
+    void Start()
+    {
+
+
+    }
     public void CambiarNivel()
     {
 
         SceneManager.LoadScene("Escenario1");
-        Debug.Log("Me estriparon");
+        
+    }
+
+    public void CambiarSeleccion()
+    {
+        SceneManager.LoadScene("Seleccion");
     }
 }

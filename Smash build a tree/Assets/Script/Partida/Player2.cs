@@ -26,6 +26,12 @@ public class Player2 : MonoBehaviour
     //Ataque
     private bool ataque;
 
+    //Keys
+    public KeyCode moveR;
+    public KeyCode moveL;
+    public KeyCode jump;
+    public KeyCode attack;
+
     private void Awake()
     {
         rigibody = GetComponent<Rigidbody2D>();
@@ -39,30 +45,39 @@ public class Player2 : MonoBehaviour
 
     void Update()
     {
-        //Movimiento
-        float entradahorizontal = Input.GetAxisRaw("Horizontal");
-        movimiento = new Vector2(entradahorizontal, 0f);
+        movimiento = new Vector2(0, 0f);
 
-        //Voltear
-        if (entradahorizontal < 0f && verDerecha == true)
+        if (Input.GetKey(moveR))
         {
-            Voltear();
+            movimiento = new Vector2(1, 0f);
+
+            if (verDerecha == false)
+            {
+                Voltear();
+            }
+
         }
-        else if (entradahorizontal > 0f && verDerecha == false)
+        else if (Input.GetKey(moveL))
         {
-            Voltear();
+            movimiento = new Vector2(-1, 0f);
+
+            if (verDerecha == true)
+            {
+                Voltear();
+            }
         }
 
         //Esta en el suelo
         inSuelo = Physics2D.OverlapCircle(verificaSuelo.position, radioCheck, layerSuelo);
 
-        if (Input.GetButtonDown("Jump") && inSuelo == true)
+        //Salto
+        if (Input.GetKeyDown(jump) && inSuelo == true)
         {
             rigibody.AddForce(Vector2.up * salto, ForceMode2D.Impulse);
         }
 
         //Ataque
-        if (Input.GetButtonDown("Fire1") && inSuelo == true && ataque == false)
+        if (Input.GetKeyDown(attack) && inSuelo == true && ataque == false)
         {
             movimiento = Vector2.zero;
             rigibody.velocity = Vector2.zero;
