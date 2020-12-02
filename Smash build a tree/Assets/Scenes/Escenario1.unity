@@ -2067,7 +2067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &583146466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11482,6 +11482,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1795809542870912768, guid: 2d1366d70d13a7f4bb3b5967c283b25b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908684688970632536, guid: 2d1366d70d13a7f4bb3b5967c283b25b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293989460587919038, guid: 2d1366d70d13a7f4bb3b5967c283b25b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3512307060679915833, guid: 2d1366d70d13a7f4bb3b5967c283b25b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4874690647870553198, guid: 2d1366d70d13a7f4bb3b5967c283b25b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11541,6 +11561,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Jugador 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413478060435055106, guid: 2d1366d70d13a7f4bb3b5967c283b25b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795285853273708296, guid: 2d1366d70d13a7f4bb3b5967c283b25b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d1366d70d13a7f4bb3b5967c283b25b, type: 3}
@@ -11620,6 +11650,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 179252139270257378, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627307247193600025, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925613802710976306, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+        type: 3}
+      propertyPath: poderAtaque
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2926748372296848923, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002049599422043308, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3237862519944810773, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
         type: 3}
       propertyPath: m_Name
@@ -11680,6 +11735,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5571687230304333715, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111424295174216543, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111424295174216543, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192532398899815348, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594441831931120643, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+        type: 3}
+      propertyPath: poderAtaque
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 958ee5374cd1cab4bbaf8d2489aa46fa, type: 3}
 --- !u!1001 &5098584181422255906
@@ -11689,10 +11769,120 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1798995775431514012, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798995775431514012, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893096717787409466, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893096717787409466, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996333148945818247, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.248
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996333148945818247, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.053
+      objectReference: {fileID: 0}
+    - target: {fileID: 2121180506835717157, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2787044352586064922, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271134975537930490, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: attackrange
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271134975537930490, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: EnemyLayer.m_Bits
+      value: 7168
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271134975537930490, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: escudo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271134975537930490, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: escudotiempo
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271134975537930490, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: poderSalto
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271134975537930490, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: turboSalto
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3612320114820138732, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757072910300331263, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4438579390662419904, guid: b444a8339c75ca849b179dcc7aaf650b,
         type: 3}
       propertyPath: m_Name
       value: Jugador 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438579390662419904, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817354545824835812, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044467113355878940, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044467113355878940, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468895580933863038, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906124950667225826, guid: b444a8339c75ca849b179dcc7aaf650b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 9024696802820407612, guid: b444a8339c75ca849b179dcc7aaf650b,
         type: 3}
@@ -11758,10 +11948,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1595028219379383167, guid: 12754e321b52fd846beed09b62e2d96c,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740622981559020312, guid: 12754e321b52fd846beed09b62e2d96c,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332761068147850660, guid: 12754e321b52fd846beed09b62e2d96c,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996349910142582540, guid: 12754e321b52fd846beed09b62e2d96c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4226782833675950902, guid: 12754e321b52fd846beed09b62e2d96c,
         type: 3}
       propertyPath: m_Name
       value: Jugador 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4226782833675950902, guid: 12754e321b52fd846beed09b62e2d96c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643743137106173952, guid: 12754e321b52fd846beed09b62e2d96c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7664349411794875455, guid: 12754e321b52fd846beed09b62e2d96c,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700515727136037898, guid: 12754e321b52fd846beed09b62e2d96c,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8344702582298312936, guid: 12754e321b52fd846beed09b62e2d96c,
         type: 3}

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player2
+  - Player1
   layers:
   - Default
   - TransparentFX
@@ -14,10 +16,10 @@ TagManager:
   - 
   - 
   - Suelo
-  - 
-  - 
-  - 
-  - 
+  - Player-1
+  - Player-2
+  - Player-3
+  - Player-4
   - 
   - 
   - 
@@ -40,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: shield
+    uniqueID: 1092467477
     locked: 0

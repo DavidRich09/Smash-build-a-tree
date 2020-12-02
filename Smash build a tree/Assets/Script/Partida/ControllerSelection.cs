@@ -8,6 +8,7 @@ public class ControllerSelection : MonoBehaviour
     public static ControllerSelection instancia;
     private GameObject[] personajeSeleccionado;
     private int index;
+    public int vidas = 3;
 
     void Awake()
     {
