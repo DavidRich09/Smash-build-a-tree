@@ -23,11 +23,6 @@ public class ControllerSelection2 : MonoBehaviour
 
             Destroy(gameObject);
 
-            instancia = ControllerSelection2.GetInstancia();
-
-            Debug.Log(instancia.personajeSeleccionado[instancia.index]);
-
-            instancia.personajeSeleccionado[instancia.index].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }
 
     }
@@ -68,5 +63,15 @@ public class ControllerSelection2 : MonoBehaviour
         personajeSeleccionado[index].SetActive(false);
         index = i;
         personajeSeleccionado[index].SetActive(true);
+    }
+
+    public GameObject[] GetPersonajeSeleccionado()
+    {
+        return personajeSeleccionado;
+    }
+
+    public int GetIndex()
+    {
+        return index;
     }
 }

@@ -14,9 +14,17 @@ public class GamaManager : MonoBehaviour
 
     public static GamaManager instancia;
 
+    public FacadeGame facadeGame;
+
     public EstadoJuego gamestate = EstadoJuego.inGame;
 
-    public void Awake()
+    public bool BTS = false;
+    public bool AVL = false;
+    public bool B = false;
+    public bool SPLAY = false;
+
+
+    void Awake()
     {
         if (instancia == null)
         {
@@ -26,6 +34,12 @@ public class GamaManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        facadeGame = FindObjectOfType<FacadeGame>();
+        facadeGame.IniciarPartida();
     }
 
     private void Update()
@@ -50,4 +64,48 @@ public class GamaManager : MonoBehaviour
         }
     }
 
+    public static GamaManager GetInstancia()
+    {
+        return instancia;
+    }
+
+    public void SetBTS(bool valor)
+    {
+        BTS = valor;
+    }
+
+    public void SetAVL(bool valor)
+    {
+        AVL = valor;
+    }
+
+    public void SetB(bool valor)
+    {
+        B = valor;
+    }
+
+    public void SetSPLAY(bool valor)
+    {
+        SPLAY = valor;
+    }
+
+    public bool GetBTS()
+    {
+        return BTS;
+    }
+
+    public bool GetAVL()
+    {
+        return AVL;
+    }
+
+    public bool GetB()
+    {
+        return B;
+    }
+
+    public bool GetSPLAY()
+    {
+        return SPLAY;
+    }
 }

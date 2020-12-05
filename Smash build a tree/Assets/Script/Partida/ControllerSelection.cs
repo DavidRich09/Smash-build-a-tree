@@ -7,7 +7,7 @@ public class ControllerSelection : MonoBehaviour
 
     public static ControllerSelection instancia;
     private GameObject[] personajeSeleccionado;
-    private int index;
+    private int index = 0;
     public int vidas = 3;
 
     void Awake()
@@ -24,13 +24,11 @@ public class ControllerSelection : MonoBehaviour
 
             Destroy(gameObject);
 
-            instancia = ControllerSelection.GetInstancia();
-
-            instancia.personajeSeleccionado[instancia.index].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+           
         }
 
     }
-    
+
     public void Hijos()
     {
 
@@ -41,7 +39,7 @@ public class ControllerSelection : MonoBehaviour
             personajeSeleccionado[i] = transform.GetChild(i).gameObject;
         }
 
-        foreach(GameObject personaje in personajeSeleccionado)
+        foreach (GameObject personaje in personajeSeleccionado)
         {
             personaje.SetActive(false);
         }
@@ -50,12 +48,12 @@ public class ControllerSelection : MonoBehaviour
         {
             personajeSeleccionado[index].SetActive(true);
         }
-        
+
     }
 
     void Update()
     {
-        
+        ArbolNodos();
     }
 
     public static ControllerSelection GetInstancia()
@@ -68,5 +66,21 @@ public class ControllerSelection : MonoBehaviour
         personajeSeleccionado[index].SetActive(false);
         index = i;
         personajeSeleccionado[index].SetActive(true);
+    }
+
+    public GameObject[] GetPersonajeSeleccionado()
+    {
+        return personajeSeleccionado;
+    }
+
+    public int GetIndex()
+    {
+        return index;
+    }
+
+    public void ArbolNodos(int index)
+    {
+        GameObject arbol = transform.GetChild(index).gameObject;
+        arbol.GetComponent<BTS>().prueba();
     }
 }
