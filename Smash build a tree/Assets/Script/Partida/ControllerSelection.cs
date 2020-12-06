@@ -51,9 +51,10 @@ public class ControllerSelection : MonoBehaviour
 
     }
 
+    
     void Update()
     {
-        ArbolNodos();
+        //ArbolNodos();
     }
 
     public static ControllerSelection GetInstancia()
@@ -81,6 +82,26 @@ public class ControllerSelection : MonoBehaviour
     public void ArbolNodos(int index)
     {
         GameObject arbol = transform.GetChild(index).gameObject;
-        arbol.GetComponent<BTS>().prueba();
+        //arbol.GetComponent<BTS>().prueba();
+    }
+
+
+    public void SumarVida()
+    {
+        vidas += 1;
+        if (vidas > 3)
+        {
+            vidas = 3;
+        }
+    }
+
+    public void RestarVida()
+    {
+        vidas -= 1;
+    }
+
+    public int GetVidas()
+    {
+        return vidas;
     }
 }

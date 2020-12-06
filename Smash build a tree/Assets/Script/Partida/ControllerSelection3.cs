@@ -7,6 +7,7 @@ public class ControllerSelection3 : MonoBehaviour
     public static ControllerSelection3 instancia;
     private GameObject[] personajeSeleccionado;
     private int index;
+    public int vidas = 3;
 
     void Awake()
     {
@@ -74,5 +75,25 @@ public class ControllerSelection3 : MonoBehaviour
     public int GetIndex()
     {
         return index;
+    }
+
+
+    public void SumarVida()
+    {
+        vidas += 1;
+        if (vidas > 3)
+        {
+            vidas = 3;
+        }
+    }
+
+    public void RestarVida()
+    {
+        vidas -= 1;
+    }
+
+    public int GetVidas()
+    {
+        return vidas;
     }
 }

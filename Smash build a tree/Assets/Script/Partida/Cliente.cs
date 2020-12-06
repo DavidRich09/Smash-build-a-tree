@@ -97,9 +97,9 @@ public class Cliente : MonoBehaviour
                 case "Arbol":
 
                     if (GamaManager.GetInstancia().GetBTS())
-                        facadeGame.LlenarArbolBTS()
+                        
                     {
-
+                        //facadeGame.LlenarArbolBTS();
                     } else if (GamaManager.GetInstancia().GetB())
                     {
 

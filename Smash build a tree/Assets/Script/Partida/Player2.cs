@@ -46,7 +46,7 @@ public class Player2 : MonoBehaviour
 
     public bool poderSalto = false;
     public float turboSalto = 2f;
-
+    LayerMask mylayer;
 
     //Keys
     public KeyCode moveR;
@@ -66,6 +66,8 @@ public class Player2 : MonoBehaviour
         {
             EscudoOBJ.SetActive(true);
         }
+
+        mylayer = gameObject.layer;
     }
 
     void Update()
@@ -284,29 +286,52 @@ public class Player2 : MonoBehaviour
         {
             //logica de ver cua token es
             //Mander informacion al cliente
+            Destroy(token);
+            
         }
         else if (tag.Equals("Poder"))
         {
-            int poder = 1;
-            //int poder = token.GetComponent<Poder>().getPoder();
-
+            string poder = token.GetComponent<Poder>().GetTipo();
+           
             switch (poder)
             {
-                case 1:
+                case "Ataque":
                     poderAtaque = true;
                     break;
 
-                case 2:
+                case "Shield":
                     escudo = true;
                     EscudoOBJ.SetActive(true);
                     break;
 
-                case 3:
+                case "Salto":
+                    poderSalto = true;
                     break;
 
-                case 4:
+                case "Vida":
+                    if (mylayer == LayerMask.NameToLayer("Player-1"))
+                    {
+                        ControllerSelection controller = ControllerSelection.GetInstancia();
+                        controller.GetComponent<ControllerSelection>().SumarVida();
+                    }
+                    else if (mylayer == LayerMask.NameToLayer("Player-2"))
+                    {
+                        ControllerSelection2 controller = ControllerSelection2.GetInstancia();
+                        controller.GetComponent<ControllerSelection2>().SumarVida();
+                    }
+                    else if (mylayer == LayerMask.NameToLayer("Player-3"))
+                    {
+                        ControllerSelection3 controller = ControllerSelection3.GetInstancia();
+                        controller.GetComponent<ControllerSelection3>().SumarVida();
+                    }
+                    else if (mylayer == LayerMask.NameToLayer("Player-4"))
+                    {
+                        ControllerSelection4 controller = ControllerSelection4.GetInstancia();
+                        controller.GetComponent<ControllerSelection4>().SumarVida();
+                    }
                     break;
             }
+            Destroy(token);
         }
     }
 
