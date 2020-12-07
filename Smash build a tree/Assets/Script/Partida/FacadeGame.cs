@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class FacadeGame : MonoBehaviour
 {
-    private ControllerSelection player1;
-    private ControllerSelection2 player2;
-    private ControllerSelection3 player3;
-    private ControllerSelection4 player4;
     private GameObject Objectplayer1;
     private GameObject Objectplayer2;
     private GameObject Objectplayer3;
@@ -21,14 +17,11 @@ public class FacadeGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player1 = ControllerSelection.GetInstancia();
-        player2 = ControllerSelection2.GetInstancia();
-        player3 = ControllerSelection3.GetInstancia();
-        player4 = ControllerSelection4.GetInstancia();
-        Objectplayer1 = GameObject.Find("Jugador 1");
-        Objectplayer2 = GameObject.Find("Jugador 2");
-        Objectplayer3 = GameObject.Find("Jugador 3");
-        Objectplayer4 = GameObject.Find("Jugador 4");
+       
+        Objectplayer1 = GameObject.Find("Jugador1");
+        Objectplayer2 = GameObject.Find("Jugador2");
+        Objectplayer3 = GameObject.Find("Jugador3");
+        Objectplayer4 = GameObject.Find("Jugador4");
         instancia1 = ControllerSelection.GetInstancia();
         instancia2 = ControllerSelection2.GetInstancia();
         instancia3 = ControllerSelection3.GetInstancia();
@@ -305,7 +298,7 @@ public class FacadeGame : MonoBehaviour
     {
         if (Objectplayer1.activeSelf)
         {
-            GameObject hijo = Objectplayer1.transform.GetChild(9).gameObject;
+            GameObject hijo = Objectplayer1.transform.GetChild(8).gameObject;
 
             hijo.SetActive(false);
 
@@ -313,21 +306,21 @@ public class FacadeGame : MonoBehaviour
 
         if (Objectplayer2.activeSelf)
         {
-            GameObject hijo = Objectplayer2.transform.GetChild(9).gameObject;
+            GameObject hijo = Objectplayer2.transform.GetChild(8).gameObject;
 
             hijo.SetActive(false);
         }
 
         if (Objectplayer3.activeSelf)
         {
-            GameObject hijo = Objectplayer3.transform.GetChild(9).gameObject;
+            GameObject hijo = Objectplayer3.transform.GetChild(8).gameObject;
 
             hijo.SetActive(false);
         }
 
         if (Objectplayer4.activeSelf)
         {
-            GameObject hijo = Objectplayer4.transform.GetChild(9).gameObject;
+            GameObject hijo = Objectplayer4.transform.GetChild(8).gameObject;
 
             hijo.SetActive(false);
         }
@@ -335,6 +328,7 @@ public class FacadeGame : MonoBehaviour
 
     public void LlenarArbolBTS(string jugador, int[] nodos)
     {
+        
         switch (jugador)
         {
             case "Jugador1":

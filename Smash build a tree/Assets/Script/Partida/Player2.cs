@@ -284,10 +284,12 @@ public class Player2 : MonoBehaviour
 
         if (tag.Equals("Token"))
         {
-            //logica de ver cua token es
-            //Mander informacion al cliente
+            string jugadorname = gameObject.transform.parent.name;
+
+            collision.gameObject.GetComponent<Token>().SendToken(jugadorname);
+
             Destroy(token);
-            
+
         }
         else if (tag.Equals("Poder"))
         {

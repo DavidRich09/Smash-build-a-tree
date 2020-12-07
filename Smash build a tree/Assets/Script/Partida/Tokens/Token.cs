@@ -12,11 +12,13 @@ public class Token : MonoBehaviour
     public GameObject placer;
     TextMesh txt;
 
+    public Cliente cliente;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        cliente = FindObjectOfType<Cliente>();
     }
 
     // Update is called once per frame
@@ -32,10 +34,17 @@ public class Token : MonoBehaviour
     {
         tipo = tipox;
         valor = valorx;
-        if (tipo.Equals("BST") || tipo.Equals("SPLAY")|| tipo.Equals("B")|| tipo.Equals("AVL"))
+        if (tipo.Equals("BST") || tipo.Equals("Splay")|| tipo.Equals("BTree")|| tipo.Equals("AVL"))
         {
             txt = placer.GetComponent<TextMesh>();
             txt.text = valor.ToString();
         }
+    }
+
+
+    public void SendToken(string jugador)
+    {
+        string mensaje = jugador + "#" + tipo + "#" + valor.ToString();
+        cliente.EnviarMensaje(mensaje);
     }
 }

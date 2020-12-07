@@ -74,7 +74,8 @@ public class BST {
     // This method mainly calls InorderRec() 
     void preorder()  
     {  
-         preorderRec(root,0);  
+         preorderRec(root,0);
+         index = 0;
     } 
   
     // A utility function to  

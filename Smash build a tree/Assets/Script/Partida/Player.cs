@@ -294,22 +294,23 @@ public class Player : MonoBehaviour
     }
 
     //Detectar si se hagarro un token
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         GameObject token = collision.gameObject;
         string tag = token.tag;
 
         if (tag.Equals("Token"))
         {
-            //logica de ver cua token es
-            //Mander informacion al cliente
+            string jugadorname = gameObject.transform.parent.name;
+
+            collision.gameObject.GetComponent<Token>().SendToken(jugadorname);
+            
             Destroy(token);
         }
         else if(tag.Equals("Poder"))
         {
             string poder = token.GetComponent<Poder>().GetTipo();
-            //int poder = token.GetComponent<Poder>().getPoder();
-
+   
             switch (poder)
             {
                 case "Ataque":
@@ -362,7 +363,9 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(attackpoint.position, attackrange);
     }
 
-
-
     
+    
+      
+
+
 }

@@ -14,7 +14,7 @@ public class GamaManager : MonoBehaviour
 {
 
     public static GamaManager instancia;
-
+    public Cliente cliente;
     public FacadeGame facadeGame;
 
     public EstadoJuego gamestate = EstadoJuego.inGame;
@@ -26,6 +26,11 @@ public class GamaManager : MonoBehaviour
 
     public float timeleft;
     public Text timer;
+    public Text challengeText;
+    public string currentChallenge;
+    public Text ganadorDisplay;
+
+    public bool ejeccucion;
 
 
     void Awake()
@@ -44,10 +49,21 @@ public class GamaManager : MonoBehaviour
     {
         facadeGame = FindObjectOfType<FacadeGame>();
         facadeGame.IniciarPartida();
+
+        cliente = FindObjectOfType<Cliente>();
+
+        
     }
 
     private void Update()
     {
+
+        if (GamaManager.GetInstancia().ejeccucion)
+        {
+            cliente.EjeccucionCliente();
+            GamaManager.GetInstancia().ejeccucion = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             PauseGame();
@@ -69,6 +85,30 @@ public class GamaManager : MonoBehaviour
         {
             timer.text = minutos.ToString() + ":" + segundos.ToString();
         }
+
+
+        challengeText.text =  currentChallenge;
+
+        if(timeleft <= 0)
+        {
+            if (currentChallenge.Equals("BST"))
+            {
+                facadeGame.EndBTS();
+            }
+            else if (currentChallenge.Equals("AVL"))
+            {
+                facadeGame.EndAVL();
+            }
+            else if (currentChallenge.Equals("Splay"))
+            {
+                facadeGame.EndSPLAY();
+            }
+            else if (currentChallenge.Equals("BTree"))
+            {
+                facadeGame.EndB();
+            }
+        }
+
     }
 
     public void PauseGame()
@@ -127,5 +167,26 @@ public class GamaManager : MonoBehaviour
     public bool GetSPLAY()
     {
         return SPLAY;
+    }
+
+    public void SetChallenge(string challengex)
+    {
+        currentChallenge = challengex;
+    }
+
+    public void SetTimer()
+    {
+        timeleft = 60f;
+    }
+
+
+    public void DisplayWinner(string ganadorx)
+    {
+        ganadorDisplay.text = ganadorx + "ha ganado!!";
+    }
+
+    public void QuitarWinner()
+    {
+        ganadorDisplay.text = "";
     }
 }

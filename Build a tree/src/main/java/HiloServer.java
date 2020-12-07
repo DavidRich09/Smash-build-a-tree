@@ -21,7 +21,7 @@ public class HiloServer extends Observable implements Runnable {
            //while loop que escucha el cliente
            //¿qué hay que escuchar?: # de jugadores, quien agarró cual token, qué tipo de token, el valor del token 
            while (true){
-                System.out.print("Listening to Client");
+                //System.out.print("Listening to Client");
                 try {
                     byte[] lenBytes = new byte[4];
                     dinput.read(lenBytes, 0, 4);
@@ -30,9 +30,12 @@ public class HiloServer extends Observable implements Runnable {
                     byte[] receivedBytes = new byte[len];
                     dinput.read(receivedBytes, 0, len);
                     String received = new String(receivedBytes, 0, len);
+
                     this.setChanged();
-                    this.notifyObservers(recibido);  
+                    this.notifyObservers(received);
                     this.clearChanged();
+
+
                 }
                 catch (Exception e){
                     //Exceptions

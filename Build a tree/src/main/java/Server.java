@@ -60,19 +60,16 @@ public class Server implements Observer{
         /*
         bst1 = new BST();
         bst1.insert(10);
-        bst1.insert(9);
-        bst1.insert(11);
-        bst1.insert(13);
-        bst1.insert(12);
-        bst1.insert(6);
-        bst1.insert(7);
-        bst1.insert(8);
+
         bst1.preorder();
         for (int i = 0; i < 15; i++){
-            System.out.println(bst1.array[i]);}        
-        /*
-        /*
+            System.out.println(bst1.array[i]);}
+
+        bst1.insert(11);
         bst1.preorder();
+        for (int i = 0; i < 15; i++){
+            System.out.println(bst1.array[i]);}
+
         JsonNode node = Json.toJson(bst1.array);
         try {
             String nodos = Json.generateString(node, false);
@@ -86,9 +83,9 @@ public class Server implements Observer{
         try{
             ss = new ServerSocket(5000);            
             System.out.println("Connection accepted" + "\n");
+            socket = ss.accept();
             dinput = new DataInputStream(socket.getInputStream());
             doutput = new DataOutputStream(socket.getOutputStream());
-            socket = ss.accept();
             HiloServer hiloserver = new HiloServer(dinput,socket);
             hiloserver.addObserver(this);
             Thread t = new Thread(hiloserver);
@@ -106,7 +103,8 @@ public class Server implements Observer{
                     challenge_starter = rand.nextInt(10001);
                     //cuando el número aleatorio es igual a 10000, se inicia un challenge de un árbol aleatorio
                     if (challenge_starter == 10000){
-                        create_challenge(rand.nextInt(4));
+                        //create_challenge(rand.nextInt(4));
+                        create_challenge(1);
                         active_challenge = true;
                         challengestartTime = System.nanoTime();
                         challenge_cooldown = true;
@@ -126,7 +124,7 @@ public class Server implements Observer{
             while (active_challenge == true){
                 long challengeEndTime = System.nanoTime(); 
                 //System.out.print("seconds passed:" + test );
-                if (((challengeEndTime - challengestartTime)/1000000000) > 10){
+                if (((challengeEndTime - challengestartTime)/1000000000) > 62){
                     System.out.print("Challenge ended" + "\n");
                     active_challenge = false;
                     challengecooldownstartTime = System.nanoTime();
@@ -134,6 +132,11 @@ public class Server implements Observer{
                             bst_challenge = false;
                             System.out.print("Player 1 won the BST challenge" + "\n");
                             //award points to the most grown bst
+
+                            enviar_mensaje("Ganador"+"#"+"Jugador1"+"#"+"-1",socket);
+
+
+
                             reset_BST(bst1);
                             reset_BST(bst2);
                             reset_BST(bst3);
@@ -144,6 +147,10 @@ public class Server implements Observer{
                             avl_challenge = false;
                             System.out.print("Player 2 won the AVL challenge" + "\n");
                             //award points to the most grown AVL
+
+
+                            enviar_mensaje("Ganador"+"#"+"Jugador2"+"#"+"-1",socket);
+
                             reset_AVL(avl1);
                             reset_AVL(avl2);
                             reset_AVL(avl3);
@@ -154,6 +161,9 @@ public class Server implements Observer{
                                 btree_challenge = false;
                                 System.out.print("Player 3 won the BTree challenge" + "\n");
                                 //award points to the most grown btree
+
+                                enviar_mensaje("Ganador"+"#"+"Jugador3"+"#"+"-1",socket);
+
                                 reset_BTree(btree1);
                                 reset_BTree(btree2);
                                 reset_BTree(btree3);
@@ -163,6 +173,9 @@ public class Server implements Observer{
                                 splay_challenge = false;  
                                 System.out.print("Player 4 won the Splay challenge" + "\n");
                                 //award points to the most grown splay
+
+                                enviar_mensaje("Ganador"+"#"+"Jugador4"+"#"+"-1",socket);
+
                                 reset_Splay(splay1);
                                 reset_Splay(splay2);
                                 reset_Splay(splay3);
@@ -179,10 +192,11 @@ public class Server implements Observer{
                             token_cooldown = true;
                             tokencooldownstartTime = System.nanoTime();
                             make_token(rand_token.nextInt(8),rand_token_value.nextInt(101));
+
                         }
                     } else {                        
                             tokencooldownEndTime = System.nanoTime(); 
-                            if (((tokencooldownEndTime - tokencooldownstartTime)/1000000000) > 1){
+                            if (((tokencooldownEndTime - tokencooldownstartTime)/1000000000) > 0.2){
                                 token_cooldown = false;  
                             }                                                                      
                     }
@@ -197,14 +211,19 @@ public class Server implements Observer{
             case "BST":
                 switch(player){
                     case 1:
+                        System.out.println("BST");
                         bst1.insert(token.get_valor());
                         bst1.preorder();
-                        JsonNode node1 = Json.toJson(bst1.array);
+
                         try {
+                            JsonNode node1 = Json.toJson(bst1.array);
+                            System.out.println("Dentro del try");
                             String nodos1 = Json.generateString(node1, false);
-                            enviar_mensaje("Arbol" + "#Player1#" + nodos1,socket);
+                            enviar_mensaje("Arbol" + "#Jugador1#" + nodos1,socket);
+                            System.out.println(nodos1);
                         } catch (JsonProcessingException e) {
                             e.printStackTrace();
+                            System.out.println("Se mamo");
                         }
                         break;
                     case 2:
@@ -213,7 +232,8 @@ public class Server implements Observer{
                         JsonNode node2 = Json.toJson(bst2.array);
                         try {
                             String nodos2 = Json.generateString(node2, false);
-                            enviar_mensaje("Arbol" + "#Player2#" + nodos2,socket);
+                            enviar_mensaje("Arbol" + "#Jugador2#" + nodos2,socket);
+                            System.out.println(nodos2);
                         } catch (JsonProcessingException e) {
                             e.printStackTrace();
                         }
@@ -224,7 +244,8 @@ public class Server implements Observer{
                         JsonNode node3 = Json.toJson(bst3.array);
                         try {
                             String nodos3 = Json.generateString(node3, false);
-                            enviar_mensaje("Arbol" + "#Player3#" + nodos3,socket);
+                            enviar_mensaje("Arbol" + "#Jugador3#" + nodos3,socket);
+                            System.out.println(nodos3);
                         } catch (JsonProcessingException e) {
                             e.printStackTrace();
                         }
@@ -235,7 +256,8 @@ public class Server implements Observer{
                         JsonNode node4 = Json.toJson(bst4.array);
                         try {
                             String nodos4 = Json.generateString(node4, false);
-                            enviar_mensaje("Arbol" + "#Player4#" + nodos4,socket);
+                            enviar_mensaje("Arbol" + "#Jugador4#" + nodos4,socket);
+                            System.out.println(nodos4);
                         } catch (JsonProcessingException e) {
                             e.printStackTrace();
                         }
@@ -402,8 +424,37 @@ public class Server implements Observer{
 
     @Override
     public void update(Observable o, Object o1) {
-        String mensaje = String.valueOf(o1);
-        System.out.println(mensaje);
+        String mensplit = String.valueOf(o1);
+
+        String[] mensaje = mensplit.split("#");
+        Token tokenplayer = new Token();
+        tokenplayer.set_tipo(mensaje[1]);
+        tokenplayer.set_valor(Integer.parseInt(mensaje[2]));
+        System.out.println(tokenplayer.get_tipo() + tokenplayer.get_valor());
+
+        System.out.println("-----------------");
+        System.out.println(mensplit);
+        System.out.println("-----------------");
+
+        switch (mensaje[0]) {
+            case "Jugador1":
+                modify_tree(tokenplayer, 1);
+                System.out.println("Jugador1");
+                break;
+            case "Jugador2":
+                modify_tree(tokenplayer, 2);
+                System.out.println("Jugador2");
+                break;
+            case "Jugador3":
+                modify_tree(tokenplayer, 3);
+                System.out.println("Jugador3");
+                break;
+            case "Jugador4":
+                modify_tree(tokenplayer, 4);
+                System.out.println("Jugador4");
+                break;
+        }
+
     }
     
     

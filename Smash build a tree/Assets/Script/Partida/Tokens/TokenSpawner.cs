@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TokenSpawner : MonoBehaviour {
 
-    public static TokenSpawner instancia;
 
     public GameObject BST, AVL, B, SPLAY, Shield,Ataque, Salto, Vida;
 
@@ -53,12 +52,12 @@ public class TokenSpawner : MonoBehaviour {
         }
         else if (tipo.Equals("Splay"))
         {
-            Instantiate(SPLAY, transform.position, Quaternion.identity).GetComponent<Token>().SetToken("SPLAY", valor);
+            Instantiate(SPLAY, transform.position, Quaternion.identity).GetComponent<Token>().SetToken("Splay", valor);
                 
         }
-        else if(tipo.Equals("BT"))
+        else if(tipo.Equals("BTree"))
         {
-            Instantiate(B, transform.position, Quaternion.identity).GetComponent<Token>().SetToken("BT", valor);
+            Instantiate(B, transform.position, Quaternion.identity).GetComponent<Token>().SetToken("BTree", valor);
                
         }
         else if (tipo.Equals("Escudo"))
@@ -80,9 +79,4 @@ public class TokenSpawner : MonoBehaviour {
 
     }
 
-
-    public static TokenSpawner GetInstancia()
-    {
-        return instancia;
-    }
 }
