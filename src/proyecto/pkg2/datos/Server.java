@@ -159,7 +159,7 @@ public class Server implements Observer{
                             System.out.print("token generated" + "\n");
                             token_cooldown = true;
                             tokencooldownstartTime = System.nanoTime();
-                            make_token(rand_token.nextInt(7),rand_token_value.nextInt(101));
+                            make_token(rand_token.nextInt(8),rand_token_value.nextInt(101));
                         }
                     } else {                        
                             tokencooldownEndTime = System.nanoTime(); 
@@ -321,6 +321,11 @@ public class Server implements Observer{
                 break;
             case 6:
                 token.set_tipo("Salto");
+                enviar_mensaje("Poder" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()),socket);   
+                //send_token(token)
+                break;
+            case 7:
+                token.set_tipo("Vida");
                 enviar_mensaje("Poder" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()),socket);   
                 //send_token(token)
                 break;
