@@ -4,7 +4,7 @@ public class BST {
     
     class Node  
     { 
-        int key; 
+        int key;         
         Node left, right; 
   
         public Node(int item) 
@@ -16,6 +16,8 @@ public class BST {
     
     // Root of BST 
     Node root = null; 
+    int[] array = new int[15];
+    int index = 0;
   
     // Constructor 
     BST()  
@@ -70,26 +72,46 @@ public class BST {
     }
     
     // This method mainly calls InorderRec() 
-    void postorder()  
+    void preorder()  
     {  
-         postorderRec(root);  
+         preorderRec(root,0);  
     } 
   
     // A utility function to  
     // do inorder traversal of BST 
-    void postorderRec(Node root) 
-    { 
-        if (root != null) {  
-            
-            postorderRec(root.left);             
-            postorderRec(root.right); 
-            //return root.key;
-            
-        } 
-        else{
-            System.out.println(-1);
+    void preorderRec(Node root, int profundidad) { 
+        if (profundidad < 4){
+            if (root != null) {  
+
+                add(root.key); 
+                preorderRec(root.left,profundidad + 1);             
+                preorderRec(root.right, profundidad +1); 
+                //return root.key;
+
+            } 
+            else{                
+                switch (profundidad) {
+                    case 1:
+                        for (int i = 0; i < 7; i++){
+                            add(0);
+                        }   break;
+                    case 2:
+                        for (int i = 0; i < 3; i++){
+                            add(0);
+                        }   break;
+                    case 3:
+                        add(0);
+                        break;
+                }
+            }
         }
     }    
+    
+    void add(int element){
+        array[index] = element;
+        index ++;
+    }
+    
     
     // Driver Code 
     /*
