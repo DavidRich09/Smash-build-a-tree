@@ -16839,6 +16839,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4735806323857810759, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
+    - target: {fileID: 273750911087378549, guid: e88bb57cae6662a42a5ca5a4a01396a4,
+        type: 3}
+      propertyPath: m_Name
+      value: BTS
+      objectReference: {fileID: 0}
+    - target: {fileID: 273750911087378549, guid: e88bb57cae6662a42a5ca5a4a01396a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273750911369352029, guid: e88bb57cae6662a42a5ca5a4a01396a4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 273750911369352029, guid: e88bb57cae6662a42a5ca5a4a01396a4,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.817
@@ -17008,6 +17024,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4438579390662419904, guid: b444a8339c75ca849b179dcc7aaf650b,
+    - target: {fileID: 4350334892278482798, guid: f1b530c0e3338934b9536dbdd6ba0d56,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1b530c0e3338934b9536dbdd6ba0d56, type: 3}
+--- !u!1001 &3513087997418698984
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3237862519944810773, guid: 958ee5374cd1cab4bbaf8d2489aa46fa,
         type: 3}
       propertyPath: m_Name
       value: Jugador 1
