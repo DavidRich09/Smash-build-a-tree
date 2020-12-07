@@ -16,6 +16,8 @@ public class Cliente : MonoBehaviour
     private ControllerSelection3 player3;
     private ControllerSelection4 player4;
     private FacadeGame facadeGame;
+    private int[] nodos;
+    private ArregloInt arregloInt = new ArregloInt();
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +28,6 @@ public class Cliente : MonoBehaviour
         player4 = ControllerSelection4.GetInstancia();
 
         facadeGame = FindObjectOfType<FacadeGame>();
-
-        listen = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        connect = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5000);
 
         Thread hiloCliente = new Thread(ClienteLogic);
         hiloCliente.Start();
@@ -44,6 +43,9 @@ public class Cliente : MonoBehaviour
 
     public void ClienteLogic()
     {
+
+        listen = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        connect = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5000);
 
         listen.Connect(connect);
 
@@ -96,19 +98,25 @@ public class Cliente : MonoBehaviour
 
                 case "Arbol":
 
+                    arregloInt =  JsonUtility.FromJson<ArregloInt>(mensaje[2]);
+
+                    nodos = arregloInt.MiLista;
+
                     if (GamaManager.GetInstancia().GetBTS())
-                        facadeGame.LlenarArbolBTS()
                     {
-
-                    } else if (GamaManager.GetInstancia().GetB())
+                        facadeGame.LlenarArbolBTS(mensaje[1],nodos);
+                    }
+                    else if (GamaManager.GetInstancia().GetB())
                     {
-
-                    } else if (GamaManager.GetInstancia().GetAVL())
+                        facadeGame.LlenarArbolB(mensaje[1], nodos);
+                    } 
+                    else if (GamaManager.GetInstancia().GetAVL())
                     {
-
-                    } else if (GamaManager.GetInstancia().GetSPLAY())
+                        facadeGame.LlenarArbolAVL(mensaje[1], nodos);
+                    } 
+                    else if (GamaManager.GetInstancia().GetSPLAY())
                     {
-
+                        facadeGame.LlenarArbolSPLAY(mensaje[1], nodos);
                     }
 
                     break;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AVL : MonoBehaviour
+public class B : MonoBehaviour
 {
     private GameObject[] nodos;
 

@@ -48,6 +48,8 @@ public class GamaManager : MonoBehaviour
         {
             PauseGame();
         }
+
+        
     
     }
 

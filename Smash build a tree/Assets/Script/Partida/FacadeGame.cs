@@ -81,7 +81,7 @@ public class FacadeGame : MonoBehaviour
     {
         if (Objectplayer1.activeSelf)
         {
-            GameObject hijo = Objectplayer1.transform.GetChild(6).gameObject;
+            GameObject hijo = Objectplayer1.transform.GetChild(5).gameObject;
 
             hijo.SetActive(true);
 
@@ -89,21 +89,21 @@ public class FacadeGame : MonoBehaviour
 
         if (Objectplayer2.activeSelf)
         {
-            GameObject hijo = Objectplayer2.transform.GetChild(6).gameObject;
+            GameObject hijo = Objectplayer2.transform.GetChild(5).gameObject;
 
             hijo.SetActive(true);
         }
 
         if (Objectplayer3.activeSelf)
         {
-            GameObject hijo = Objectplayer3.transform.GetChild(6).gameObject;
+            GameObject hijo = Objectplayer3.transform.GetChild(5).gameObject;
 
             hijo.SetActive(true);
         }
 
         if (Objectplayer4.activeSelf)
         {
-            GameObject hijo = Objectplayer4.transform.GetChild(6).gameObject;
+            GameObject hijo = Objectplayer4.transform.GetChild(5).gameObject;
 
             hijo.SetActive(true);
         }
@@ -113,38 +113,6 @@ public class FacadeGame : MonoBehaviour
     {
         if (Objectplayer1.activeSelf)
         {
-            GameObject hijo = Objectplayer1.transform.GetChild(8).gameObject;
-
-            hijo.SetActive(true);
-
-        }
-
-        if (Objectplayer2.activeSelf)
-        {
-            GameObject hijo = Objectplayer2.transform.GetChild(8).gameObject;
-
-            hijo.SetActive(true);
-        }
-
-        if (Objectplayer3.activeSelf)
-        {
-            GameObject hijo = Objectplayer3.transform.GetChild(8).gameObject;
-
-            hijo.SetActive(true);
-        }
-
-        if (Objectplayer4.activeSelf)
-        {
-            GameObject hijo = Objectplayer4.transform.GetChild(8).gameObject;
-
-            hijo.SetActive(true);
-        }
-    }
-
-    public void AVL()
-    {
-        if (Objectplayer1.activeSelf)
-        {
             GameObject hijo = Objectplayer1.transform.GetChild(7).gameObject;
 
             hijo.SetActive(true);
@@ -173,11 +141,11 @@ public class FacadeGame : MonoBehaviour
         }
     }
 
-    public void SPLAY()
+    public void AVL()
     {
         if (Objectplayer1.activeSelf)
         {
-            GameObject hijo = Objectplayer1.transform.GetChild(9).gameObject;
+            GameObject hijo = Objectplayer1.transform.GetChild(6).gameObject;
 
             hijo.SetActive(true);
 
@@ -185,27 +153,123 @@ public class FacadeGame : MonoBehaviour
 
         if (Objectplayer2.activeSelf)
         {
-            GameObject hijo = Objectplayer2.transform.GetChild(9).gameObject;
+            GameObject hijo = Objectplayer2.transform.GetChild(6).gameObject;
 
             hijo.SetActive(true);
         }
 
         if (Objectplayer3.activeSelf)
         {
-            GameObject hijo = Objectplayer3.transform.GetChild(9).gameObject;
+            GameObject hijo = Objectplayer3.transform.GetChild(6).gameObject;
 
             hijo.SetActive(true);
         }
 
         if (Objectplayer4.activeSelf)
         {
-            GameObject hijo = Objectplayer4.transform.GetChild(9).gameObject;
+            GameObject hijo = Objectplayer4.transform.GetChild(6).gameObject;
+
+            hijo.SetActive(true);
+        }
+    }
+
+    public void SPLAY()
+    {
+        if (Objectplayer1.activeSelf)
+        {
+            GameObject hijo = Objectplayer1.transform.GetChild(8).gameObject;
+
+            hijo.SetActive(true);
+
+        }
+
+        if (Objectplayer2.activeSelf)
+        {
+            GameObject hijo = Objectplayer2.transform.GetChild(8).gameObject;
+
+            hijo.SetActive(true);
+        }
+
+        if (Objectplayer3.activeSelf)
+        {
+            GameObject hijo = Objectplayer3.transform.GetChild(8).gameObject;
+
+            hijo.SetActive(true);
+        }
+
+        if (Objectplayer4.activeSelf)
+        {
+            GameObject hijo = Objectplayer4.transform.GetChild(8).gameObject;
 
             hijo.SetActive(true);
         }
     }
 
     public void EndBTS()
+    {
+        if (Objectplayer1.activeSelf)
+        {
+            GameObject hijo = Objectplayer1.transform.GetChild(5).gameObject;
+
+            hijo.SetActive(false);
+
+        }
+
+        if (Objectplayer2.activeSelf)
+        {
+            GameObject hijo = Objectplayer2.transform.GetChild(5).gameObject;
+
+            hijo.SetActive(false);
+        }
+
+        if (Objectplayer3.activeSelf)
+        {
+            GameObject hijo = Objectplayer3.transform.GetChild(5).gameObject;
+
+            hijo.SetActive(false);
+        }
+
+        if (Objectplayer4.activeSelf)
+        {
+            GameObject hijo = Objectplayer4.transform.GetChild(5).gameObject;
+
+            hijo.SetActive(false);
+        }
+    }
+
+    public void EndB()
+    {
+        if (Objectplayer1.activeSelf)
+        {
+            GameObject hijo = Objectplayer1.transform.GetChild(7).gameObject;
+
+            hijo.SetActive(false);
+
+        }
+
+        if (Objectplayer2.activeSelf)
+        {
+            GameObject hijo = Objectplayer2.transform.GetChild(7).gameObject;
+
+            hijo.SetActive(false);
+        }
+
+        if (Objectplayer3.activeSelf)
+        {
+            GameObject hijo = Objectplayer3.transform.GetChild(7).gameObject;
+
+            hijo.SetActive(false);
+        }
+
+        if (Objectplayer4.activeSelf)
+        {
+            GameObject hijo = Objectplayer4.transform.GetChild(7).gameObject;
+
+            hijo.SetActive(false);
+        }
+    }
+    
+    public void EndAVL()
     {
         if (Objectplayer1.activeSelf)
         {
@@ -232,70 +296,6 @@ public class FacadeGame : MonoBehaviour
         if (Objectplayer4.activeSelf)
         {
             GameObject hijo = Objectplayer4.transform.GetChild(6).gameObject;
-
-            hijo.SetActive(false);
-        }
-    }
-
-    public void EndB()
-    {
-        if (Objectplayer1.activeSelf)
-        {
-            GameObject hijo = Objectplayer1.transform.GetChild(8).gameObject;
-
-            hijo.SetActive(false);
-
-        }
-
-        if (Objectplayer2.activeSelf)
-        {
-            GameObject hijo = Objectplayer2.transform.GetChild(8).gameObject;
-
-            hijo.SetActive(false);
-        }
-
-        if (Objectplayer3.activeSelf)
-        {
-            GameObject hijo = Objectplayer3.transform.GetChild(8).gameObject;
-
-            hijo.SetActive(false);
-        }
-
-        if (Objectplayer4.activeSelf)
-        {
-            GameObject hijo = Objectplayer4.transform.GetChild(8).gameObject;
-
-            hijo.SetActive(false);
-        }
-    }
-    
-    public void EndAVL()
-    {
-        if (Objectplayer1.activeSelf)
-        {
-            GameObject hijo = Objectplayer1.transform.GetChild(7).gameObject;
-
-            hijo.SetActive(false);
-
-        }
-
-        if (Objectplayer2.activeSelf)
-        {
-            GameObject hijo = Objectplayer2.transform.GetChild(7).gameObject;
-
-            hijo.SetActive(false);
-        }
-
-        if (Objectplayer3.activeSelf)
-        {
-            GameObject hijo = Objectplayer3.transform.GetChild(7).gameObject;
-
-            hijo.SetActive(false);
-        }
-
-        if (Objectplayer4.activeSelf)
-        {
-            GameObject hijo = Objectplayer4.transform.GetChild(7).gameObject;
 
             hijo.SetActive(false);
         }
@@ -333,85 +333,89 @@ public class FacadeGame : MonoBehaviour
         }
     }
 
-    public void LlenarArbolBTS(string jugador)
+    public void LlenarArbolBTS(string jugador, int[] nodos)
     {
         switch (jugador)
         {
             case "Jugador1":
-
+                ControllerSelection.GetInstancia().ArbolNodos(5, nodos);
                 break;
 
             case "Jugador2":
-
+                ControllerSelection2.GetInstancia().ArbolNodos(5, nodos);
                 break;
 
             case "Jugador3":
+                ControllerSelection3.GetInstancia().ArbolNodos(5, nodos);
                 break;
 
             case "Jugador4":
-
+                ControllerSelection4.GetInstancia().ArbolNodos(5, nodos);
                 break;
         }
     }
 
-    public void LlenarArbolB(string jugador)
+    public void LlenarArbolB(string jugador, int[] nodos)
     {
         switch (jugador)
         {
             case "Jugador1":
-
+                ControllerSelection.GetInstancia().ArbolNodos(7, nodos);
                 break;
 
             case "Jugador2":
-
+                ControllerSelection2.GetInstancia().ArbolNodos(7, nodos);
                 break;
 
             case "Jugador3":
+                ControllerSelection3.GetInstancia().ArbolNodos(7, nodos);
                 break;
 
             case "Jugador4":
-
+                ControllerSelection4.GetInstancia().ArbolNodos(7, nodos);
                 break;
         }
     }
-    public void LlenarArbolAVL(string jugador)
+    public void LlenarArbolAVL(string jugador, int[] nodos)
     {
         switch (jugador)
         {
             case "Jugador1":
-
+                ControllerSelection.GetInstancia().ArbolNodos(6, nodos);
                 break;
 
             case "Jugador2":
-
+                ControllerSelection2.GetInstancia().ArbolNodos(6, nodos);
                 break;
 
             case "Jugador3":
+                ControllerSelection3.GetInstancia().ArbolNodos(6, nodos);
                 break;
 
             case "Jugador4":
-
+                ControllerSelection4.GetInstancia().ArbolNodos(6, nodos);
                 break;
         }
     }
 
-    public void LlenarArbolSPLAY(string jugador)
+    public void LlenarArbolSPLAY(string jugador, int[] nodos)
     {
         switch (jugador)
         {
             case "Jugador1":
-
+                ControllerSelection.GetInstancia().ArbolNodos(8, nodos);
                 break;
 
             case "Jugador2":
-
+                ControllerSelection2.GetInstancia().ArbolNodos(8, nodos);
                 break;
 
             case "Jugador3":
+                ControllerSelection3.GetInstancia().ArbolNodos(8, nodos);
                 break;
 
             case "Jugador4":
-
+                ControllerSelection4.GetInstancia().ArbolNodos(8, nodos);
                 break;
         }
     }

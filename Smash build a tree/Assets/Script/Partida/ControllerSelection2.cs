@@ -74,4 +74,26 @@ public class ControllerSelection2 : MonoBehaviour
     {
         return index;
     }
+
+    public void ArbolNodos(int index, int[] listaNodos)
+    {
+        GameObject arbol = transform.GetChild(index).gameObject;
+
+        if (index == 5)
+        {
+            arbol.GetComponent<BTS>().UpdateNodo(listaNodos);
+        }
+        else if (index == 6)
+        {
+            arbol.GetComponent<BTS>().UpdateNodo(listaNodos);
+        }
+        else if (index == 7)
+        {
+            arbol.GetComponent<BTS>().UpdateNodo(listaNodos);
+        }
+        else if (index == 8)
+        {
+            arbol.GetComponent<BTS>().UpdateNodo(listaNodos);
+        }
+    }
 }
