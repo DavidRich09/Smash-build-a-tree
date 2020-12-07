@@ -19,6 +19,7 @@ public class Cliente : MonoBehaviour
     private int[] nodos;
     private ArregloInt arregloInt = new ArregloInt();
     private GamaManager gameManager;
+    private TokenSpawner tokenSpawner;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,8 @@ public class Cliente : MonoBehaviour
         player2 = ControllerSelection2.GetInstancia();
         player3 = ControllerSelection3.GetInstancia();
         player4 = ControllerSelection4.GetInstancia();
+
+        tokenSpawner = TokenSpawner.GetInstancia();
 
         gameManager = GamaManager.GetInstancia();
 
@@ -94,9 +97,42 @@ public class Cliente : MonoBehaviour
                     break;
 
                 case "Token":
+
+                    if (mensaje[1].Equals("BTS"))
+                    {
+                        tokenSpawner.GetComponent<TokenSpawner>().spawntoken("BST",Convert.ToInt32(mensaje[2]));
+                    }
+                    else if (mensaje[1].Equals("AVL"))
+                    {
+                        tokenSpawner.GetComponent<TokenSpawner>().spawntoken("AVL", Convert.ToInt32(mensaje[2]));
+                    }
+                    else if (mensaje[1].Equals("Splay"))
+                    {
+                        tokenSpawner.GetComponent<TokenSpawner>().spawntoken("Splay", Convert.ToInt32(mensaje[2]));
+                    }
+                    else if (mensaje[1].Equals("BT"))
+                    {
+                        tokenSpawner.GetComponent<TokenSpawner>().spawntoken("BT", Convert.ToInt32(mensaje[2]));
+                    }
                     break;
 
                 case "Poder":
+                    if (mensaje[1].Equals("Escudo"))
+                    {
+                        tokenSpawner.GetComponent<TokenSpawner>().spawntoken("Esucudo", Convert.ToInt32(mensaje[2]));
+                    }
+                    else if (mensaje[1].Equals("Ataque"))
+                    {
+                        tokenSpawner.GetComponent<TokenSpawner>().spawntoken("Ataque", Convert.ToInt32(mensaje[2]));
+                    }
+                    else if (mensaje[1].Equals("Salto"))
+                    {
+                        tokenSpawner.GetComponent<TokenSpawner>().spawntoken("Salto", Convert.ToInt32(mensaje[2]));
+                    }
+                    else if (mensaje[1].Equals("B"))
+                    {
+                        tokenSpawner.GetComponent<TokenSpawner>().spawntoken("BT", Convert.ToInt32(mensaje[2]));
+                    }
                     break;
 
                 case "Arbol":

@@ -25,7 +25,7 @@ public class GamaManager : MonoBehaviour
     public bool SPLAY = false;
 
     public float timeleft;
-    [SerializeField] Text timer;
+    public Text timer;
 
 
     void Awake()
