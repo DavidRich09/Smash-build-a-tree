@@ -49,20 +49,26 @@ public class Server implements Observer{
     Splay splay2;
     Splay splay3;
     Splay splay4;
-    int[] bst1list = new int[16];
     long challengestartTime;
     
     //lista de nodos que están activos (si existen y ´tienen valor)
     public void start() {
+        
+        /*
         bst1 = new BST();
-        bst1.insert(-1);
-        bst1.insert(-2);
-        bst1.insert(-3);
-        bst1.insert(-4);
-        bst1.insert(-5);
-        bst1.insert(-6);
-        bst1.insert(-7);
-        bst1.insert(-8);
+        bst1.insert(10);
+        bst1.insert(9);
+        bst1.insert(11);
+        bst1.insert(13);
+        bst1.insert(12);
+        bst1.insert(6);
+        bst1.insert(7);
+        bst1.insert(8);
+        
+        bst1.preorder();
+        for (int i = 0; i < 15; i++){
+            System.out.println(bst1.array[i]);}        
+        */
         
         try{
             ss = new ServerSocket(5000);            
@@ -107,7 +113,7 @@ public class Server implements Observer{
             while (active_challenge == true){
                 long challengeEndTime = System.nanoTime(); 
                 //System.out.print("seconds passed:" + test );
-                if (((challengeEndTime - challengestartTime)/1000000000) > 60){
+                if (((challengeEndTime - challengestartTime)/1000000000) > 10){
                     System.out.print("Challenge ended" + "\n");
                     active_challenge = false;
                     challengecooldownstartTime = System.nanoTime();
@@ -163,7 +169,7 @@ public class Server implements Observer{
                         }
                     } else {                        
                             tokencooldownEndTime = System.nanoTime(); 
-                            if (((tokencooldownEndTime - tokencooldownstartTime)/1000000000) > 3){
+                            if (((tokencooldownEndTime - tokencooldownstartTime)/1000000000) > 1){
                                 token_cooldown = false;  
                             }                                                                      
                     }
