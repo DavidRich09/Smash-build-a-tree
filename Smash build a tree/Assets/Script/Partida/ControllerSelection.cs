@@ -51,6 +51,7 @@ public class ControllerSelection : MonoBehaviour
 
     }
 
+    
     void Update()
     {
         
@@ -98,5 +99,26 @@ public class ControllerSelection : MonoBehaviour
         {
             arbol.GetComponent<BTS>().UpdateNodo(listaNodos);
         }
+        
+    }
+
+
+    public void SumarVida()
+    {
+        vidas += 1;
+        if (vidas > 3)
+        {
+            vidas = 3;
+        }
+    }
+
+    public void RestarVida()
+    {
+        vidas -= 1;
+    }
+
+    public int GetVidas()
+    {
+        return vidas;
     }
 }

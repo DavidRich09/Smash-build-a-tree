@@ -18,6 +18,7 @@ public class Cliente : MonoBehaviour
     private FacadeGame facadeGame;
     private int[] nodos;
     private ArregloInt arregloInt = new ArregloInt();
+    private GamaManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,8 @@ public class Cliente : MonoBehaviour
         player2 = ControllerSelection2.GetInstancia();
         player3 = ControllerSelection3.GetInstancia();
         player4 = ControllerSelection4.GetInstancia();
+
+        gameManager = GamaManager.GetInstancia();
 
         facadeGame = FindObjectOfType<FacadeGame>();
 

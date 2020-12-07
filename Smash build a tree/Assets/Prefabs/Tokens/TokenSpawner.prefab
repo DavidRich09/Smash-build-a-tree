@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3222342152434689323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3222342152434689320}
+  - component: {fileID: 3222342152434689321}
+  - component: {fileID: 3222342152434689322}
+  m_Layer: 0
+  m_Name: TokenSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3222342152434689320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222342152434689323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9, y: 2.51, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &3222342152434689321
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222342152434689323}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &3222342152434689322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222342152434689323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4846b60acb78c4408f6275b512d907b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BST: {fileID: 4995319685619555149, guid: ab92abd6e5f85a548bb130aa2c26918f, type: 3}
+  AVL: {fileID: 3838044562399792615, guid: 53be9b110d939ce49afbbdddd5a957cd, type: 3}
+  B: {fileID: 1936166283118344316, guid: 1402a99a3d6011340bcad4b4d2b693ec, type: 3}
+  SPLAY: {fileID: 6629033184838072740, guid: 814e4a1fdcf96d94997ef547d077126f, type: 3}
+  Shield: {fileID: 4649847822490685519, guid: 292574c17cbb1d24584cc03e7445dbb7, type: 3}
+  Ataque: {fileID: 2847242602991661809, guid: 73c3f1e9a10188f468c3e81bc933a10e, type: 3}
+  Salto: {fileID: 8122765172563763032, guid: 18750beec3f37db4eacdd156f98ed5e4, type: 3}
+  Vida: {fileID: 3836365071888902367, guid: 99d686c9725d7c143aa6efdc782d8dab, type: 3}
+  spawnRate: 2
+  RmoveSpeed: 1
+  Lmovespeed: -1
+  rb: {fileID: 3222342152434689321}

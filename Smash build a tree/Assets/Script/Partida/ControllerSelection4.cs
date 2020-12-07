@@ -7,6 +7,7 @@ public class ControllerSelection4 : MonoBehaviour
     public static ControllerSelection4 instancia;
     private GameObject[] personajeSeleccionado;
     private int index;
+    public int vidas = 3;
 
     void Awake()
     {
@@ -95,5 +96,25 @@ public class ControllerSelection4 : MonoBehaviour
         {
             arbol.GetComponent<BTS>().UpdateNodo(listaNodos);
         }
+    }
+
+    public void SumarVida()
+    {
+        vidas += 1;
+        if (vidas > 3)
+        {
+            vidas = 3;
+        }
+    }
+
+
+    public void RestarVida()
+    {
+        vidas -= 1;
+    }
+
+    public int GetVidas()
+    {
+        return vidas;
     }
 }

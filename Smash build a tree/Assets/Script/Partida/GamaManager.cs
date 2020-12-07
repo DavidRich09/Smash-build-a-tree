@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum EstadoJuego
 {
@@ -22,6 +23,9 @@ public class GamaManager : MonoBehaviour
     public bool AVL = false;
     public bool B = false;
     public bool SPLAY = false;
+
+    public float timeleft;
+    [SerializeField] Text timer;
 
 
     void Awake()
@@ -49,8 +53,22 @@ public class GamaManager : MonoBehaviour
             PauseGame();
         }
 
-        
-    
+        timeleft -= 1 * Time.deltaTime;
+        if (timeleft <= 0f)
+        {
+            timeleft = 0f;
+        }
+        int minutos = (int)(timeleft / 60);
+        int segundos =(int) timeleft - (minutos * 60);
+
+        if (segundos < 10)
+        {
+            timer.text = minutos.ToString() + ":" + "0" + segundos.ToString();
+        }
+        else
+        {
+            timer.text = minutos.ToString() + ":" + segundos.ToString();
+        }
     }
 
     public void PauseGame()

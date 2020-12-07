@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Player2
   - Player1
+  - Token
+  - Poder
   layers:
   - Default
   - TransparentFX
@@ -45,4 +47,10 @@ TagManager:
     locked: 0
   - name: shield
     uniqueID: 1092467477
+    locked: 0
+  - name: Tokens
+    uniqueID: 2328776229
+    locked: 0
+  - name: Text token
+    uniqueID: 3867091345
     locked: 0
