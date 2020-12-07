@@ -38,7 +38,7 @@ public class AVL : MonoBehaviour
 
             nodos[i].SetActive(false);
 
-            if (i == nodosActivos[i])
+            if (nodosActivos[i] != 0)
             {
                 nodos[i].SetActive(true);
             }
