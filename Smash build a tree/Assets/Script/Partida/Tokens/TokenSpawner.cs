@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TokenSpawner : MonoBehaviour {
 
+    public static TokenSpawner instancia;
+
     public GameObject BST, AVL, B, SPLAY, Shield,Ataque, Salto, Vida;
 
     public float spawnRate = 2f;
@@ -93,5 +95,11 @@ public class TokenSpawner : MonoBehaviour {
 
             nextSpawn = Time.time + spawnRate;
         }
+    }
+
+
+    public static TokenSpawner GetInstancia()
+    {
+        return instancia;
     }
 }

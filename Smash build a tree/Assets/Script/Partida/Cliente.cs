@@ -16,6 +16,7 @@ public class Cliente : MonoBehaviour
     private ControllerSelection3 player3;
     private ControllerSelection4 player4;
     private FacadeGame facadeGame;
+    private GamaManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,8 @@ public class Cliente : MonoBehaviour
         player2 = ControllerSelection2.GetInstancia();
         player3 = ControllerSelection3.GetInstancia();
         player4 = ControllerSelection4.GetInstancia();
+
+        gameManager = GamaManager.GetInstancia();
 
         facadeGame = FindObjectOfType<FacadeGame>();
 
