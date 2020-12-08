@@ -33,7 +33,7 @@ public class BTS : MonoBehaviour
 
     public void UpdateNodo(int[] nodosActivos)
     {
-        Debug.Log("Llego a UpdateNodo");
+        
 
         for (int i = 0; i < transform.childCount; i++)
         {

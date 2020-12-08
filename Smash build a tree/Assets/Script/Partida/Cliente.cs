@@ -166,7 +166,6 @@ public class Cliente : MonoBehaviour
 
                 string[] arreglo= mensaje[2].Split(',');
 
-                //["[1","3","0","0","0","9]"]
 
                 arreglo[0] = arreglo[0].Trim('[');
                 arreglo[arreglo.Length-1] = arreglo[arreglo.Length - 1].Trim(']');

@@ -31,18 +31,18 @@ public class B : MonoBehaviour
     }
 
     public void UpdateNodo(int[] nodosActivos)
-    {
-
+    { 
         for (int i = 0; i < transform.childCount; i++)
         {
 
             nodos[i].SetActive(false);
 
-            if (i == nodosActivos[i])
+            if (nodosActivos[i] != 0)
             {
                 nodos[i].SetActive(true);
             }
         }
+        
     }
 
     public void ReiniciarArbol()

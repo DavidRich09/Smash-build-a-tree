@@ -70,16 +70,25 @@ public class Server implements Observer{
         bst1.preorder();
         for (int i = 0; i < 15; i++){
             System.out.println(bst1.array[i]);}
+        */
+        /*
+        btree1 = new BTree();
+        btree1.insert(10);
+        btree1.insert(15);
+        btree1.insert(2);
+        btree1.insert(12);
+        btree1.insert(30);
+        btree1.insert(8);
 
-        JsonNode node = Json.toJson(bst1.array);
+        JsonNode node = Json.toJson(btree1.preOrder());
         try {
             String nodos = Json.generateString(node, false);
             System.out.println(nodos);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        */
 
+        */
         
         try{
             ss = new ServerSocket(5000);            
@@ -195,8 +204,8 @@ public class Server implements Observer{
                             System.out.print("token generated" + "\n");
                             token_cooldown = true;
                             tokencooldownstartTime = System.nanoTime();
-                            //make_token(rand_token.nextInt(8),rand_token_value.nextInt(101));
-                            make_token(1,rand_token_value.nextInt(101));
+                            make_token(rand_token.nextInt(8),rand_token_value.nextInt(101));
+
 
                         }
                     } else {                        
