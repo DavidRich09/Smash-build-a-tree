@@ -1,8 +1,10 @@
 
 
 public class Splay {
+    int[] array = new int[15];
+    int index = 0;
     private SplayNode root;
-     private int count = 0;
+    private int count = 0;
  
      /** Constructor **/
      public Splay()
@@ -220,48 +222,48 @@ public class Splay {
          return null;
      }
  
-     /** Function for inorder traversal **/ 
-     public void inorder()
-     {
-         inorder(root);
-     }
-     private void inorder(SplayNode r)
-     {
-         if (r != null)
-         {
-             inorder(r.left);
-             System.out.print(r.element +" ");
-             inorder(r.right);
-         }
-     }
- 
      /** Function for preorder traversal **/
      public void preorder()
      {
-         preorder(root);
+         preorderRec(root,0);
+         index = 0;
      }
-     private void preorder(SplayNode r)
+     private void preorderRec(SplayNode root, int profundidad)
      {
-         if (r != null)
-         {
-             System.out.print(r.element +" ");
-             preorder(r.left);             
-             preorder(r.right);
+         if (profundidad < 4){
+             if (root != null) {
+
+                 add(root.element);
+                 preorderRec(root.left,profundidad + 1);
+                 preorderRec(root.right, profundidad +1);
+                 //return root.key;
+
+             }
+             else{
+                 switch (profundidad) {
+                     case 0:
+                         for (int i = 0; i < 15; i++){
+                             add(0);
+                         }   break;
+                     case 1:
+                         for (int i = 0; i < 7; i++){
+                             add(0);
+                         }   break;
+                     case 2:
+                         for (int i = 0; i < 3; i++){
+                             add(0);
+                         }   break;
+                     case 3:
+                         add(0);
+                         break;
+                 }
+             }
          }
      }
+    void add(int element){
+        array[index] = element;
+        index ++;
+    }
  
-     /** Function for postorder traversal **/
-     public void postorder()
-     {
-         postorder(root);
-     }
-     private void postorder(SplayNode r)
-     {
-         if (r != null)
-         {
-             postorder(r.left);             
-             postorder(r.right);
-             System.out.print(r.element +" ");
-         }
-     }    
+
 }

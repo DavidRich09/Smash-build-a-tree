@@ -9,8 +9,5 @@
         <module name="Build_a_tree" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Build a tree" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

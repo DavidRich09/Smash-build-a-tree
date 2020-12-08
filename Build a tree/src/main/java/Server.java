@@ -54,6 +54,7 @@ public class Server implements Observer{
     Splay splay4;
     long challengestartTime;
     boolean startsending = false;
+    boolean winnersent = false;
     
     //lista de nodos que están activos (si existen y ´tienen valor)
     public void start() {
@@ -142,57 +143,214 @@ public class Server implements Observer{
                     active_challenge = false;
                     challengecooldownstartTime = System.nanoTime();
                     if (bst_challenge == true){
-                            bst_challenge = false;
-                            System.out.print("Player 1 won the BST challenge" + "\n");
-                            //award points to the most grown bst
+                        bst_challenge = false;
+                        if (winnersent != true){
+                            if (bst1.countNodes() >= bst2.countNodes()){
+                                if (bst1.countNodes() >= bst3.countNodes()){
+                                    if (bst1.countNodes() >= bst4.countNodes()){
+                                        enviar_mensaje("Ganador"+"#"+"Jugador1"+"#"+"-1",socket);
+                                        winnersent = true;
+                                    }
+                                }
+                            }
+                        }
 
-                            enviar_mensaje("Ganador"+"#"+"Jugador1"+"#"+"-1",socket);
+                        if (winnersent != true){
+                            if (bst2.countNodes() >= bst1.countNodes()){
+                                if (bst2.countNodes() >= bst3.countNodes()){
+                                    if (bst2.countNodes() >= bst4.countNodes()){
+                                        enviar_mensaje("Ganador"+"#"+"Jugador2"+"#"+"-1",socket);
+                                        winnersent = true;
+                                    }
+                                }
+                            }
+                        }
 
+                        if (winnersent != true){
+                            if (bst3.countNodes() >= bst1.countNodes()){
+                                if (bst3.countNodes() >= bst2.countNodes()){
+                                    if (bst3.countNodes() >= bst4.countNodes()){
+                                        enviar_mensaje("Ganador"+"#"+"Jugador3"+"#"+"-1",socket);
+                                        winnersent = true;
+                                    }
+                                }
+                            }
+                        }
 
+                        if (winnersent != true){
+                            if (bst4.countNodes() >= bst1.countNodes()){
+                                if (bst4.countNodes() >= bst2.countNodes()){
+                                    if (bst4.countNodes() >= bst3.countNodes()){
+                                        enviar_mensaje("Ganador"+"#"+"Jugador4"+"#"+"-1",socket);
+                                        winnersent = true;
+                                    }
+                                }
+                            }
+                        }
 
-                            reset_BST(bst1);
-                            reset_BST(bst2);
-                            reset_BST(bst3);
-                            reset_BST(bst4);
+                        reset_BST(bst1);
+                        reset_BST(bst2);
+                        reset_BST(bst3);
+                        reset_BST(bst4);
+                        winnersent = false;
                     }                    
                     else{ 
                         if (avl_challenge == true){
                             avl_challenge = false;
-                            System.out.print("Player 2 won the AVL challenge" + "\n");
-                            //award points to the most grown AVL
+                            if (winnersent != true){
+                                if (avl1.countNodes() >= avl2.countNodes()){
+                                    if (avl1.countNodes() >= avl3.countNodes()){
+                                        if (avl1.countNodes() >= avl4.countNodes()){
+                                            enviar_mensaje("Ganador"+"#"+"Jugador1"+"#"+"-1",socket);
+                                            winnersent = true;
+                                        }
+                                    }
+                                }
+                            }
 
+                            if (winnersent != true){
+                                if (avl2.countNodes() >= avl1.countNodes()){
+                                    if (bst2.countNodes() >= avl3.countNodes()){
+                                        if (avl2.countNodes() >= avl4.countNodes()){
+                                            enviar_mensaje("Ganador"+"#"+"Jugador2"+"#"+"-1",socket);
+                                            winnersent = true;
+                                        }
+                                    }
+                                }
+                            }
 
-                            enviar_mensaje("Ganador"+"#"+"Jugador2"+"#"+"-1",socket);
+                            if (winnersent != true){
+                                if (avl3.countNodes() >= avl1.countNodes()){
+                                    if (avl3.countNodes() >= avl2.countNodes()){
+                                        if (avl3.countNodes() >= avl4.countNodes()){
+                                            enviar_mensaje("Ganador"+"#"+"Jugador3"+"#"+"-1",socket);
+                                            winnersent = true;
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (winnersent != true){
+                                if (avl4.countNodes() >= avl1.countNodes()){
+                                    if (avl4.countNodes() >= avl2.countNodes()){
+                                        if (avl4.countNodes() >= avl3.countNodes()){
+                                            enviar_mensaje("Ganador"+"#"+"Jugador4"+"#"+"-1",socket);
+                                            winnersent = true;
+                                        }
+                                    }
+                                }
+                            }
 
                             reset_AVL(avl1);
                             reset_AVL(avl2);
                             reset_AVL(avl3);
                             reset_AVL(avl4);
+                            winnersent = false;
                         }            
                         else{
                             if (btree_challenge == true){
                                 btree_challenge = false;
-                                System.out.print("Player 3 won the BTree challenge" + "\n");
-                                //award points to the most grown btree
+                                if (winnersent != true){
+                                    if (btree1.countNodes() >= btree2.countNodes()){
+                                        if (btree1.countNodes() >= btree3.countNodes()){
+                                            if (btree1.countNodes() >= btree4.countNodes()){
+                                                enviar_mensaje("Ganador"+"#"+"Jugador1"+"#"+"-1",socket);
+                                                winnersent = true;
+                                            }
+                                        }
+                                    }
+                                }
 
-                                enviar_mensaje("Ganador"+"#"+"Jugador3"+"#"+"-1",socket);
+                                if (winnersent != true){
+                                    if (btree2.countNodes() >= btree1.countNodes()){
+                                        if (btree2.countNodes() >= btree3.countNodes()){
+                                            if (btree2.countNodes() >= btree4.countNodes()){
+                                                enviar_mensaje("Ganador"+"#"+"Jugador2"+"#"+"-1",socket);
+                                                winnersent = true;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (winnersent != true){
+                                    if (btree3.countNodes() >= btree1.countNodes()){
+                                        if (btree3.countNodes() >= btree2.countNodes()){
+                                            if (btree3.countNodes() >= btree4.countNodes()){
+                                                enviar_mensaje("Ganador"+"#"+"Jugador3"+"#"+"-1",socket);
+                                                winnersent = true;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (winnersent != true){
+                                    if (btree4.countNodes() >= btree1.countNodes()){
+                                        if (btree4.countNodes() >= btree2.countNodes()){
+                                            if (btree4.countNodes() >= btree3.countNodes()){
+                                                enviar_mensaje("Ganador"+"#"+"Jugador4"+"#"+"-1",socket);
+                                                winnersent = true;
+                                            }
+                                        }
+                                    }
+                                }
 
                                 reset_BTree(btree1);
                                 reset_BTree(btree2);
                                 reset_BTree(btree3);
                                 reset_BTree(btree4);
+                                winnersent = false;
                             }
                             else{
-                                splay_challenge = false;  
-                                System.out.print("Player 4 won the Splay challenge" + "\n");
-                                //award points to the most grown splay
+                                splay_challenge = false;
+                                if (winnersent != true){
+                                    if (splay1.countNodes() >= splay2.countNodes()){
+                                        if (splay1.countNodes() >= splay3.countNodes()){
+                                            if (splay1.countNodes() >= splay4.countNodes()){
+                                                enviar_mensaje("Ganador"+"#"+"Jugador1"+"#"+"-1",socket);
+                                                winnersent = true;
+                                            }
+                                        }
+                                    }
+                                }
 
-                                enviar_mensaje("Ganador"+"#"+"Jugador4"+"#"+"-1",socket);
+                                if (winnersent != true){
+                                    if (splay2.countNodes() >= splay1.countNodes()){
+                                        if (splay2.countNodes() >= splay3.countNodes()){
+                                            if (splay2.countNodes() >= splay4.countNodes()){
+                                                enviar_mensaje("Ganador"+"#"+"Jugador2"+"#"+"-1",socket);
+                                                winnersent = true;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (winnersent != true){
+                                    if (splay3.countNodes() >= splay1.countNodes()){
+                                        if (splay3.countNodes() >= splay2.countNodes()){
+                                            if (splay3.countNodes() >= splay4.countNodes()){
+                                                enviar_mensaje("Ganador"+"#"+"Jugador3"+"#"+"-1",socket);
+                                                winnersent = true;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (winnersent != true){
+                                    if (splay4.countNodes() >= splay1.countNodes()){
+                                        if (splay4.countNodes() >= splay2.countNodes()){
+                                            if (splay4.countNodes() >= splay3.countNodes()){
+                                                enviar_mensaje("Ganador"+"#"+"Jugador4"+"#"+"-1",socket);
+                                                winnersent = true;
+                                            }
+                                        }
+                                    }
+                                }
 
                                 reset_Splay(splay1);
                                 reset_Splay(splay2);
                                 reset_Splay(splay3);
                                 reset_Splay(splay4);
+                                winnersent = false;
                             }
                         }
                     }                                     
@@ -210,7 +368,7 @@ public class Server implements Observer{
                         }
                     } else {                        
                             tokencooldownEndTime = System.nanoTime(); 
-                            if (((tokencooldownEndTime - tokencooldownstartTime)/1000000000) > 0.2){
+                            if (((tokencooldownEndTime - tokencooldownstartTime)/1000000000) > 0.01){
                                 token_cooldown = false;  
                             }                                                                      
                     }
@@ -223,91 +381,918 @@ public class Server implements Observer{
     public void modify_tree(Token token, int player){
         switch(token.get_tipo()){
             case "BST":
-                switch(player){
-                    case 1:
-                        System.out.println("BST");
-                        bst1.insert(token.get_valor());
-                        bst1.preorder();
+                if (bst_challenge == true){
+                    switch(player){
+                        case 1:
+                            System.out.println("BST");
+                            bst1.insert(token.get_valor());
+                            bst1.preorder();
 
-                        try {
-                            JsonNode node1 = Json.toJson(bst1.array);
-                            System.out.println("Dentro del try");
-                            String nodos1 = Json.generateString(node1, false);
-                            enviar_mensaje("Arbol" + "#Jugador1#" + nodos1,socket);
-                            System.out.println(nodos1);
-                        } catch (JsonProcessingException e) {
-                            e.printStackTrace();
-                            System.out.println("Se mamo");
-                        }
-                        break;
-                    case 2:
-                        bst2.insert(token.get_valor());
-                        bst2.preorder();
-                        JsonNode node2 = Json.toJson(bst2.array);
-                        try {
-                            String nodos2 = Json.generateString(node2, false);
-                            enviar_mensaje("Arbol" + "#Jugador2#" + nodos2,socket);
-                            System.out.println(nodos2);
-                        } catch (JsonProcessingException e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                    case 3:
-                        bst3.insert(token.get_valor());
-                        bst3.preorder();
-                        JsonNode node3 = Json.toJson(bst3.array);
-                        try {
-                            String nodos3 = Json.generateString(node3, false);
-                            enviar_mensaje("Arbol" + "#Jugador3#" + nodos3,socket);
-                            System.out.println(nodos3);
-                        } catch (JsonProcessingException e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                    case 4:
-                        bst4.insert(token.get_valor());
-                        bst4.preorder();
-                        JsonNode node4 = Json.toJson(bst4.array);
-                        try {
-                            String nodos4 = Json.generateString(node4, false);
-                            enviar_mensaje("Arbol" + "#Jugador4#" + nodos4,socket);
-                            System.out.println(nodos4);
-                        } catch (JsonProcessingException e) {
-                            e.printStackTrace();
-                        }
-                        break;
+                            try {
+                                JsonNode bstnode1 = Json.toJson(bst1.array);
+                                System.out.println("Dentro del try");
+                                String bstnodos1 = Json.generateString(bstnode1, false);
+                                enviar_mensaje("Arbol" + "#Jugador1#" + bstnodos1,socket);
+                                System.out.println(bstnodos1);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 2:
+                            bst2.insert(token.get_valor());
+                            bst2.preorder();
+                            try {
+                                JsonNode bstnode2 = Json.toJson(bst2.array);
+                                String bstnodos2 = Json.generateString(bstnode2, false);
+                                enviar_mensaje("Arbol" + "#Jugador2#" + bstnodos2,socket);
+                                System.out.println(bstnodos2);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 3:
+                            bst3.insert(token.get_valor());
+                            bst3.preorder();
+                            try {
+                                JsonNode bstnode3 = Json.toJson(bst3.array);
+                                String bstnodos3 = Json.generateString(bstnode3, false);
+                                enviar_mensaje("Arbol" + "#Jugador3#" + bstnodos3,socket);
+                                System.out.println(bstnodos3);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 4:
+                            bst4.insert(token.get_valor());
+                            bst4.preorder();
+                            try {
+                                JsonNode bstnode4 = Json.toJson(bst4.array);
+                                String bstnodos4 = Json.generateString(bstnode4, false);
+                                enviar_mensaje("Arbol" + "#Jugador4#" + bstnodos4,socket);
+                                System.out.println(bstnodos4);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                    }
+                    break;
                 }
-                break;
+                else { if (avl_challenge == true){
+                    switch(player){
+                        case 1:
+                            reset_AVL(avl1);
+                            avl1 = new AVL();
+                            avl1.preorder();
+                            try {
+                                JsonNode avlnode1 = Json.toJson(avl1.array);
+                                String avlnodos1 = Json.generateString(avlnode1, false);
+                                enviar_mensaje("Arbol" + "#Jugador1#" + avlnodos1,socket);
+                                System.out.println(avlnodos1);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 2:
+                            reset_AVL(avl2);
+                            avl2 = new AVL();
+                            avl2.preorder();
+                            try {
+                                JsonNode avlnode2 = Json.toJson(avl2.array);
+                                String avlnodos2 = Json.generateString(avlnode2, false);
+                                enviar_mensaje("Arbol" + "#Jugador2#" + avlnodos2,socket);
+                                System.out.println(avlnodos2);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 3:
+                            reset_AVL(avl3);
+                            avl3 = new AVL();
+                            avl3.preorder();
+                            try {
+                                JsonNode avlnode3 = Json.toJson(avl3.array);
+                                String avlnodos3 = Json.generateString(avlnode3, false);
+                                enviar_mensaje("Arbol" + "#Jugador3#" + avlnodos3,socket);
+                                System.out.println(avlnodos3);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 4:
+                            reset_AVL(avl4);
+                            avl4 = new AVL();
+                            avl4.preorder();
+                            try {
+                                JsonNode avlnode4 = Json.toJson(avl4.array);
+                                String avlnodos4 = Json.generateString(avlnode4, false);
+                                enviar_mensaje("Arbol" + "#Jugador4#" + avlnodos4,socket);
+                                System.out.println(avlnodos4);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                    }
+                    break;
+                } else { if (btree_challenge == true){
+                    switch(player){
+                        case 1:
+                            reset_BTree(btree1);
+                            btree1 = new BTree();
+                            btree1.preOrder();
+                            try {
+                                JsonNode btreenode1 = Json.toJson(btree1.array);
+                                String btreenodos1 = Json.generateString(btreenode1, false);
+                                enviar_mensaje("Arbol" + "#Jugador1#" + btreenodos1,socket);
+                                System.out.println(btreenodos1);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 2:
+                            reset_BTree(btree2);
+                            btree2 = new BTree();
+                            btree2.preOrder();
+                            try {
+                                JsonNode btreenode2 = Json.toJson(btree2.array);
+                                String btreenodos2 = Json.generateString(btreenode2, false);
+                                enviar_mensaje("Arbol" + "#Jugador2#" + btreenodos2,socket);
+                                System.out.println(btreenodos2);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 3:
+                            reset_BTree(btree3);
+                            btree3 = new BTree();
+                            btree3.preOrder();
+                            try {
+                                JsonNode btreenode3 = Json.toJson(btree3.array);
+                                String btreenodos3 = Json.generateString(btreenode3, false);
+                                enviar_mensaje("Arbol" + "#Jugador3#" + btreenodos3,socket);
+                                System.out.println(btreenodos3);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 4:
+                            reset_BTree(btree4);
+                            btree4 = new BTree();
+                            btree4.preOrder();
+                            try {
+                                JsonNode btreenode4 = Json.toJson(btree4.array);
+                                String btreenodos4 = Json.generateString(btreenode4, false);
+                                enviar_mensaje("Arbol" + "#Jugador4#" + btreenodos4,socket);
+                                System.out.println(btreenodos4);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                    }
+                    break;
+                    } else {
+                        switch(player){
+                            case 1:
+                                reset_Splay(splay1);
+                                splay1 = new Splay();
+                                splay1.preorder();
+                                try {
+                                    JsonNode splaynode1 = Json.toJson(splay1.array);
+                                    String splaynodos1 = Json.generateString(splaynode1, false);
+                                    enviar_mensaje("Arbol" + "#Jugador1#" + splaynodos1,socket);
+                                    System.out.println(splaynodos1);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 2:
+                                reset_Splay(splay2);
+                                splay2 = new Splay();
+                                splay2.preorder();
+                                try {
+                                    JsonNode splaynode2 = Json.toJson(splay2.array);
+                                    String splaynodos2 = Json.generateString(splaynode2, false);
+                                    enviar_mensaje("Arbol" + "#Jugador2#" + splaynodos2,socket);
+                                    System.out.println(splaynodos2);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 3:
+                                reset_Splay(splay3);
+                                splay3 = new Splay();
+                                splay3.preorder();
+                                try {
+                                    JsonNode splaynode3 = Json.toJson(splay3.array);
+                                    String splaynodos3 = Json.generateString(splaynode3, false);
+                                    enviar_mensaje("Arbol" + "#Jugador3#" + splaynodos3,socket);
+                                    System.out.println(splaynodos3);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 4:
+                                reset_Splay(splay4);
+                                splay4 = new Splay();
+                                splay4.preorder();
+                                try {
+                                    JsonNode splaynode4 = Json.toJson(splay4.array);
+                                    String splaynodos4 = Json.generateString(splaynode4, false);
+                                    enviar_mensaje("Arbol" + "#Jugador4#" + splaynodos4,socket);
+                                    System.out.println(splaynodos4);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+
+                        }
+
+                    }
+
+                }
+                }
             case "AVL":
-                switch(player){
-                    case 1:
-                        avl1.root = avl1.insert(avl1.root,token.get_valor());
-                        break;
-                    case 2:
-                        avl2.root = avl2.insert(avl2.root,token.get_valor());
-                        break;
-                    case 3:
-                        avl3.root = avl3.insert(avl3.root,token.get_valor());
-                        break;
-                    case 4:
-                        avl4.root = avl4.insert(avl4.root,token.get_valor());
-                        break;
-                }
-                break;
-            case "BTree":
-            case "Splay":
-                
-                /*if (bst1.search(bst1.root,70) == true){
-                System.out.print("the element already exists");
+                if (bst_challenge == true){
+                    switch(player){
+                        case 1:
+                            reset_BST(bst1);
+                            bst1 = new BST();
+                            bst1.preorder();
+                            try {
+                                JsonNode bstnode1 = Json.toJson(bst1.array);
+                                String bstnodos1 = Json.generateString(bstnode1, false);
+                                enviar_mensaje("Arbol" + "#Jugador1#" + bstnodos1,socket);
+                                System.out.println(bstnodos1);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 2:
+                            reset_BST(bst2);
+                            bst2 = new BST();
+                            bst2.preorder();
+                            try {
+                                JsonNode bstnode2 = Json.toJson(bst2.array);
+                                String bstnodos2 = Json.generateString(bstnode2, false);
+                                enviar_mensaje("Arbol" + "#Jugador2#" + bstnodos2,socket);
+                                System.out.println(bstnodos2);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 3:
+                            reset_BST(bst3);
+                            bst3 = new BST();
+                            bst3.preorder();
+                            try {
+                                JsonNode bstnode3 = Json.toJson(bst3.array);
+                                String bstnodos3 = Json.generateString(bstnode3, false);
+                                enviar_mensaje("Arbol" + "#Jugador3#" + bstnodos3,socket);
+                                System.out.println(bstnodos3);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 4:
+                            reset_BST(bst4);
+                            bst4 = new BST();
+                            bst4.preorder();
+                            try {
+                                JsonNode bstnode4 = Json.toJson(bst4.array);
+                                String bstnodos4 = Json.generateString(bstnode4, false);
+                                enviar_mensaje("Arbol" + "#Jugador4#" + bstnodos4,socket);
+                                System.out.println(bstnodos4);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                    }
+                    break;
                 }
                 else {
-                bst1.insert(70);
-                System.out.print("Inserted 70");
+                    if (avl_challenge == true) {
+                        switch(player){
+                            case 1:
+                                avl1.insert(avl1.root,token.get_valor());
+                                avl1.addCount();
+                                avl1.preorder();
+                                try {
+                                    JsonNode avlnode1 = Json.toJson(avl1.array);
+                                    String avlnodos1 = Json.generateString(avlnode1, false);
+                                    enviar_mensaje("Arbol" + "#Jugador1#" + avlnodos1,socket);
+                                    System.out.println(avlnodos1);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 2:
+                                avl2.insert(avl2.root,token.get_valor());
+                                avl2.addCount();
+                                avl2.preorder();
+                                try {
+                                    JsonNode avlnode2 = Json.toJson(avl2.array);
+                                    String avlnodos2 = Json.generateString(avlnode2, false);
+                                    enviar_mensaje("Arbol" + "#Jugador2#" + avlnodos2,socket);
+                                    System.out.println(avlnodos2);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 3:
+                                avl3.insert(avl3.root,token.get_valor());
+                                avl3.addCount();
+                                avl3.preorder();
+                                try {
+                                    JsonNode avlnode3 = Json.toJson(avl3.array);
+                                    String avlnodos3 = Json.generateString(avlnode3, false);
+                                    enviar_mensaje("Arbol" + "#Jugador3#" + avlnodos3,socket);
+                                    System.out.println(avlnodos3);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 4:
+                                avl4.insert(avl4.root,token.get_valor());
+                                avl4.addCount();
+                                avl4.preorder();
+                                try {
+                                    JsonNode avlnode4 = Json.toJson(avl4.array);
+                                    String avlnodos4 = Json.generateString(avlnode4, false);
+                                    enviar_mensaje("Arbol" + "#Jugador4#" + avlnodos4,socket);
+                                    System.out.println(avlnodos4);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                        }
+                        break;
+                    } else {
+                        if (btree_challenge == true) {
+                            switch (player) {
+                                case 1:
+                                    reset_BTree(btree1);
+                                    btree1 = new BTree();
+                                    btree1.preOrder();
+                                    try {
+                                        JsonNode btreenode1 = Json.toJson(btree1.array);
+                                        String btreenodos1 = Json.generateString(btreenode1, false);
+                                        enviar_mensaje("Arbol" + "#Jugador1#" + btreenodos1, socket);
+                                        System.out.println(btreenodos1);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 2:
+                                    reset_BTree(btree2);
+                                    btree2 = new BTree();
+                                    btree2.preOrder();
+                                    try {
+                                        JsonNode btreenode2 = Json.toJson(btree2.array);
+                                        String btreenodos2 = Json.generateString(btreenode2, false);
+                                        enviar_mensaje("Arbol" + "#Jugador2#" + btreenodos2, socket);
+                                        System.out.println(btreenodos2);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 3:
+                                    reset_BTree(btree3);
+                                    btree3 = new BTree();
+                                    btree3.preOrder();
+                                    try {
+                                        JsonNode btreenode3 = Json.toJson(btree3.array);
+                                        String btreenodos3 = Json.generateString(btreenode3, false);
+                                        enviar_mensaje("Arbol" + "#Jugador3#" + btreenodos3, socket);
+                                        System.out.println(btreenodos3);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 4:
+                                    reset_BTree(btree4);
+                                    btree4 = new BTree();
+                                    btree4.preOrder();
+                                    try {
+                                        JsonNode btreenode4 = Json.toJson(btree4.array);
+                                        String btreenodos4 = Json.generateString(btreenode4, false);
+                                        enviar_mensaje("Arbol" + "#Jugador4#" + btreenodos4, socket);
+                                        System.out.println(btreenodos4);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                            }
+                            break;
+                        } else {
+                            switch (player) {
+                                case 1:
+                                    reset_Splay(splay1);
+                                    splay1 = new Splay();
+                                    splay1.preorder();
+                                    try {
+                                        JsonNode splaynode1 = Json.toJson(splay1.array);
+                                        String splaynodos1 = Json.generateString(splaynode1, false);
+                                        enviar_mensaje("Arbol" + "#Jugador1#" + splaynodos1, socket);
+                                        System.out.println(splaynodos1);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 2:
+                                    reset_Splay(splay2);
+                                    splay2 = new Splay();
+                                    splay2.preorder();
+                                    try {
+                                        JsonNode splaynode2 = Json.toJson(splay2.array);
+                                        String splaynodos2 = Json.generateString(splaynode2, false);
+                                        enviar_mensaje("Arbol" + "#Jugador2#" + splaynodos2, socket);
+                                        System.out.println(splaynodos2);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 3:
+                                    reset_Splay(splay3);
+                                    splay3 = new Splay();
+                                    splay3.preorder();
+                                    try {
+                                        JsonNode splaynode3 = Json.toJson(splay3.array);
+                                        String splaynodos3 = Json.generateString(splaynode3, false);
+                                        enviar_mensaje("Arbol" + "#Jugador3#" + splaynodos3, socket);
+                                        System.out.println(splaynodos3);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 4:
+                                    reset_Splay(splay4);
+                                    splay4 = new Splay();
+                                    splay4.preorder();
+                                    try {
+                                        JsonNode splaynode4 = Json.toJson(splay4.array);
+                                        String splaynodos4 = Json.generateString(splaynode4, false);
+                                        enviar_mensaje("Arbol" + "#Jugador4#" + splaynodos4, socket);
+                                        System.out.println(splaynodos4);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                            }
+                        }
+                    }
                 }
-                for printing nodes
-                bst1.inorder();
-                avl1.preOrder(avl1.root);
-                */
+            case "BTree":
+                if (bst_challenge == true){
+                    switch(player){
+                        case 1:
+                            reset_BST(bst1);
+                            bst1 = new BST();
+                            bst1.preorder();
+                            try {
+                                JsonNode bstnode1 = Json.toJson(bst1.array);
+                                String bstnodos1 = Json.generateString(bstnode1, false);
+                                enviar_mensaje("Arbol" + "#Jugador1#" + bstnodos1,socket);
+                                System.out.println(bstnodos1);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 2:
+                            reset_BST(bst2);
+                            bst2 = new BST();
+                            bst2.preorder();
+                            try {
+                                JsonNode bstnode2 = Json.toJson(bst2.array);
+                                String bstnodos2 = Json.generateString(bstnode2, false);
+                                enviar_mensaje("Arbol" + "#Jugador2#" + bstnodos2,socket);
+                                System.out.println(bstnodos2);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 3:
+                            reset_BST(bst3);
+                            bst3 = new BST();
+                            bst3.preorder();
+                            try {
+                                JsonNode bstnode3 = Json.toJson(bst3.array);
+                                String bstnodos3 = Json.generateString(bstnode3, false);
+                                enviar_mensaje("Arbol" + "#Jugador3#" + bstnodos3,socket);
+                                System.out.println(bstnodos3);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 4:
+                            reset_BST(bst4);
+                            bst4 = new BST();
+                            bst4.preorder();
+                            try {
+                                JsonNode bstnode4 = Json.toJson(bst4.array);
+                                String bstnodos4 = Json.generateString(bstnode4, false);
+                                enviar_mensaje("Arbol" + "#Jugador4#" + bstnodos4,socket);
+                                System.out.println(bstnodos4);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                    }
+                    break;
+                }
+                else {
+                    if (avl_challenge == true) {
+                        switch(player){
+                            case 1:
+                                reset_AVL(avl1);
+                                avl1 = new AVL();
+                                avl1.preorder();
+                                try {
+                                    JsonNode avlnode1 = Json.toJson(avl1.array);
+                                    String avlnodos1 = Json.generateString(avlnode1, false);
+                                    enviar_mensaje("Arbol" + "#Jugador1#" + avlnodos1,socket);
+                                    System.out.println(avlnodos1);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 2:
+                                reset_AVL(avl2);
+                                avl2 = new AVL();
+                                avl2.preorder();
+                                try {
+                                    JsonNode avlnode2 = Json.toJson(avl2.array);
+                                    String avlnodos2 = Json.generateString(avlnode2, false);
+                                    enviar_mensaje("Arbol" + "#Jugador2#" + avlnodos2,socket);
+                                    System.out.println(avlnodos2);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 3:
+                                reset_AVL(avl3);
+                                avl3 = new AVL();
+                                avl3.preorder();
+                                try {
+                                    JsonNode avlnode3 = Json.toJson(avl3.array);
+                                    String avlnodos3 = Json.generateString(avlnode3, false);
+                                    enviar_mensaje("Arbol" + "#Jugador3#" + avlnodos3,socket);
+                                    System.out.println(avlnodos3);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 4:
+                                reset_AVL(avl4);
+                                avl4 = new AVL();
+                                avl4.preorder();
+                                try {
+                                    JsonNode avlnode4 = Json.toJson(avl4.array);
+                                    String avlnodos4 = Json.generateString(avlnode4, false);
+                                    enviar_mensaje("Arbol" + "#Jugador4#" + avlnodos4,socket);
+                                    System.out.println(avlnodos4);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                        }
+                        break;
+                    } else {
+                        if (btree_challenge == true) {
+                            switch (player) {
+                                case 1:
+                                    btree1.insert(token.get_valor());
+                                    btree1.preOrder();
+                                    try {
+                                        JsonNode btreenode1 = Json.toJson(btree1.array);
+                                        String btreenodos1 = Json.generateString(btreenode1, false);
+                                        enviar_mensaje("Arbol" + "#Jugador1#" + btreenodos1, socket);
+                                        System.out.println(btreenodos1);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 2:
+                                    btree2.insert(token.get_valor());
+                                    btree2.preOrder();
+                                    try {
+                                        JsonNode btreenode2 = Json.toJson(btree2.array);
+                                        String btreenodos2 = Json.generateString(btreenode2, false);
+                                        enviar_mensaje("Arbol" + "#Jugador2#" + btreenodos2, socket);
+                                        System.out.println(btreenodos2);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 3:
+                                    btree3.insert(token.get_valor());
+                                    btree3.preOrder();
+                                    try {
+                                        JsonNode btreenode3 = Json.toJson(btree3.array);
+                                        String btreenodos3 = Json.generateString(btreenode3, false);
+                                        enviar_mensaje("Arbol" + "#Jugador3#" + btreenodos3, socket);
+                                        System.out.println(btreenodos3);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 4:
+                                    btree4.insert(token.get_valor());
+                                    btree4.preOrder();
+                                    try {
+                                        JsonNode btreenode4 = Json.toJson(btree4.array);
+                                        String btreenodos4 = Json.generateString(btreenode4, false);
+                                        enviar_mensaje("Arbol" + "#Jugador4#" + btreenodos4, socket);
+                                        System.out.println(btreenodos4);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                            }
+                            break;
+                        } else {
+                            switch (player) {
+                                case 1:
+                                    reset_Splay(splay1);
+                                    splay1 = new Splay();
+                                    splay1.preorder();
+                                    try {
+                                        JsonNode splaynode1 = Json.toJson(splay1.array);
+                                        String splaynodos1 = Json.generateString(splaynode1, false);
+                                        enviar_mensaje("Arbol" + "#Jugador1#" + splaynodos1, socket);
+                                        System.out.println(splaynodos1);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 2:
+                                    reset_Splay(splay2);
+                                    splay2 = new Splay();
+                                    splay2.preorder();
+                                    try {
+                                        JsonNode splaynode2 = Json.toJson(splay2.array);
+                                        String splaynodos2 = Json.generateString(splaynode2, false);
+                                        enviar_mensaje("Arbol" + "#Jugador2#" + splaynodos2, socket);
+                                        System.out.println(splaynodos2);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 3:
+                                    reset_Splay(splay3);
+                                    splay3 = new Splay();
+                                    splay3.preorder();
+                                    try {
+                                        JsonNode splaynode3 = Json.toJson(splay3.array);
+                                        String splaynodos3 = Json.generateString(splaynode3, false);
+                                        enviar_mensaje("Arbol" + "#Jugador3#" + splaynodos3, socket);
+                                        System.out.println(splaynodos3);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 4:
+                                    reset_Splay(splay4);
+                                    splay4 = new Splay();
+                                    splay4.preorder();
+                                    try {
+                                        JsonNode splaynode4 = Json.toJson(splay4.array);
+                                        String splaynodos4 = Json.generateString(splaynode4, false);
+                                        enviar_mensaje("Arbol" + "#Jugador4#" + splaynodos4, socket);
+                                        System.out.println(splaynodos4);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                }
+            case "Splay":
+                if (bst_challenge == true){
+                    switch(player){
+                        case 1:
+                            reset_BST(bst1);
+                            bst1 = new BST();
+                            bst1.preorder();
+                            try {
+                                JsonNode bstnode1 = Json.toJson(bst1.array);
+                                String bstnodos1 = Json.generateString(bstnode1, false);
+                                enviar_mensaje("Arbol" + "#Jugador1#" + bstnodos1,socket);
+                                System.out.println(bstnodos1);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 2:
+                            reset_BST(bst2);
+                            bst2 = new BST();
+                            bst2.preorder();
+                            try {
+                                JsonNode bstnode2 = Json.toJson(bst2.array);
+                                String bstnodos2 = Json.generateString(bstnode2, false);
+                                enviar_mensaje("Arbol" + "#Jugador2#" + bstnodos2,socket);
+                                System.out.println(bstnodos2);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 3:
+                            reset_BST(bst3);
+                            bst3 = new BST();
+                            bst3.preorder();
+                            try {
+                                JsonNode bstnode3 = Json.toJson(bst3.array);
+                                String bstnodos3 = Json.generateString(bstnode3, false);
+                                enviar_mensaje("Arbol" + "#Jugador3#" + bstnodos3,socket);
+                                System.out.println(bstnodos3);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 4:
+                            reset_BST(bst4);
+                            bst4 = new BST();
+                            bst4.preorder();
+                            try {
+                                JsonNode bstnode4 = Json.toJson(bst4.array);
+                                String bstnodos4 = Json.generateString(bstnode4, false);
+                                enviar_mensaje("Arbol" + "#Jugador4#" + bstnodos4,socket);
+                                System.out.println(bstnodos4);
+                            } catch (JsonProcessingException e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                    }
+                    break;
+                }
+                else {
+                    if (avl_challenge == true) {
+                        switch(player){
+                            case 1:
+                                reset_AVL(avl1);
+                                avl1 = new AVL();
+                                avl1.preorder();
+                                try {
+                                    JsonNode avlnode1 = Json.toJson(avl1.array);
+                                    String avlnodos1 = Json.generateString(avlnode1, false);
+                                    enviar_mensaje("Arbol" + "#Jugador1#" + avlnodos1,socket);
+                                    System.out.println(avlnodos1);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 2:
+                                reset_AVL(avl2);
+                                avl2 = new AVL();
+                                avl2.preorder();
+                                try {
+                                    JsonNode avlnode2 = Json.toJson(avl2.array);
+                                    String avlnodos2 = Json.generateString(avlnode2, false);
+                                    enviar_mensaje("Arbol" + "#Jugador2#" + avlnodos2,socket);
+                                    System.out.println(avlnodos2);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 3:
+                                reset_AVL(avl3);
+                                avl3 = new AVL();
+                                avl3.preorder();
+                                try {
+                                    JsonNode avlnode3 = Json.toJson(avl3.array);
+                                    String avlnodos3 = Json.generateString(avlnode3, false);
+                                    enviar_mensaje("Arbol" + "#Jugador3#" + avlnodos3,socket);
+                                    System.out.println(avlnodos3);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            case 4:
+                                reset_AVL(avl4);
+                                avl4 = new AVL();
+                                avl4.preorder();
+                                try {
+                                    JsonNode avlnode4 = Json.toJson(avl4.array);
+                                    String avlnodos4 = Json.generateString(avlnode4, false);
+                                    enviar_mensaje("Arbol" + "#Jugador4#" + avlnodos4,socket);
+                                    System.out.println(avlnodos4);
+                                } catch (JsonProcessingException e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                        }
+                        break;
+                    } else {
+                        if (btree_challenge == true) {
+                            switch (player) {
+                                case 1:
+                                    reset_BTree(btree1);
+                                    btree1 = new BTree();
+                                    btree1.preOrder();
+                                    try {
+                                        JsonNode btreenode1 = Json.toJson(btree1.array);
+                                        String btreenodos1 = Json.generateString(btreenode1, false);
+                                        enviar_mensaje("Arbol" + "#Jugador1#" + btreenodos1, socket);
+                                        System.out.println(btreenodos1);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 2:
+                                    reset_BTree(btree2);
+                                    btree2 = new BTree();
+                                    btree2.preOrder();
+                                    try {
+                                        JsonNode btreenode2 = Json.toJson(btree2.array);
+                                        String btreenodos2 = Json.generateString(btreenode2, false);
+                                        enviar_mensaje("Arbol" + "#Jugador2#" + btreenodos2, socket);
+                                        System.out.println(btreenodos2);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 3:
+                                    reset_BTree(btree3);
+                                    btree3 = new BTree();
+                                    btree3.preOrder();
+                                    try {
+                                        JsonNode btreenode3 = Json.toJson(btree3.array);
+                                        String btreenodos3 = Json.generateString(btreenode3, false);
+                                        enviar_mensaje("Arbol" + "#Jugador3#" + btreenodos3, socket);
+                                        System.out.println(btreenodos3);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 4:
+                                    reset_BTree(btree4);
+                                    btree4 = new BTree();
+                                    btree4.preOrder();
+                                    try {
+                                        JsonNode btreenode4 = Json.toJson(btree4.array);
+                                        String btreenodos4 = Json.generateString(btreenode4, false);
+                                        enviar_mensaje("Arbol" + "#Jugador4#" + btreenodos4, socket);
+                                        System.out.println(btreenodos4);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                            }
+                            break;
+                        } else {
+                            switch (player) {
+                                case 1:
+                                    splay1.insert(token.get_valor());
+                                    splay1.preorder();
+                                    try {
+                                        JsonNode splaynode1 = Json.toJson(splay1.array);
+                                        String splaynodos1 = Json.generateString(splaynode1, false);
+                                        enviar_mensaje("Arbol" + "#Jugador1#" + splaynodos1,socket);
+                                        System.out.println(splaynodos1);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 2:
+                                    splay2.insert(token.get_valor());
+                                    splay2.preorder();
+                                    try {
+                                        JsonNode splaynode2 = Json.toJson(splay2.array);
+                                        String splaynodos2 = Json.generateString(splaynode2, false);
+                                        enviar_mensaje("Arbol" + "#Jugador2#" + splaynodos2,socket);
+                                        System.out.println(splaynodos2);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 3:
+                                    splay3.insert(token.get_valor());
+                                    splay3.preorder();
+                                    try {
+                                        JsonNode splaynode3 = Json.toJson(splay3.array);
+                                        String splaynodos3 = Json.generateString(splaynode3, false);
+                                        enviar_mensaje("Arbol" + "#Jugador3#" + splaynodos3,socket);
+                                        System.out.println(splaynodos3);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+                                case 4:
+                                    splay4.insert(token.get_valor());
+                                    splay4.preorder();
+                                    try {
+                                        JsonNode splaynode4 = Json.toJson(splay4.array);
+                                        String splaynodos4 = Json.generateString(splaynode4, false);
+                                        enviar_mensaje("Arbol" + "#Jugador4#" + splaynodos4,socket);
+                                        System.out.println(splaynodos4);
+                                    } catch (JsonProcessingException e) {
+                                        e.printStackTrace();
+                                    }
+                                    break;
+
+                            }
+                        }
+                    }
+                }
         }
     }
     
@@ -374,49 +1359,52 @@ public class Server implements Observer{
     }
     
     public void make_token(int id, int valor){
-        switch (id){
+        if (valor == 0){
+            valor = 5;
+        }
+        token.set_valor(valor);
+        switch (id) {
             case 0:
                 token.set_tipo("AVL");
-                enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()),socket);   
+                enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
             case 1:
                 token.set_tipo("BST");
-                enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()),socket);   
+                enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
             case 2:
                 token.set_tipo("BTree");
-                enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()),socket);   
+                enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
             case 3:
                 token.set_tipo("Splay");
-                enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()),socket);   
+                enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
             case 4:
                 token.set_tipo("Escudo");
-                enviar_mensaje("Poder" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()),socket);   
+                enviar_mensaje("Poder" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
             case 5:
                 token.set_tipo("Ataque");
-                enviar_mensaje("Poder" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()),socket);   
+                enviar_mensaje("Poder" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
             case 6:
                 token.set_tipo("Salto");
-                enviar_mensaje("Poder" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()),socket);   
+                enviar_mensaje("Poder" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
             case 7:
                 token.set_tipo("Vida");
-                enviar_mensaje("Poder" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()),socket);   
+                enviar_mensaje("Poder" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
         }
-        token.set_valor(valor);
     }
     
     public void enviar_mensaje(String mensaje, Socket socket){

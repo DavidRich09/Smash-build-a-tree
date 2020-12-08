@@ -18,6 +18,7 @@ public class BST {
     Node root = null; 
     int[] array = new int[15];
     int index = 0;
+    int count = 0;
   
     // Constructor 
     BST()  
@@ -45,7 +46,14 @@ public class BST {
     // This method mainly calls insertRec() 
     void insert(int key)  
     {  
-         root = insertRec(root, key);  
+        count++;
+        root = insertRec(root, key);
+    }
+
+    /** Functions to count number of nodes **/
+    public int countNodes()
+    {
+        return count;
     }
     
     /* A recursive function to  
@@ -92,6 +100,10 @@ public class BST {
             } 
             else{                
                 switch (profundidad) {
+                    case 0:
+                        for (int i = 0; i < 15; i++){
+                            add(0);
+                        }   break;
                     case 1:
                         for (int i = 0; i < 7; i++){
                             add(0);
@@ -112,7 +124,7 @@ public class BST {
         array[index] = element;
         index ++;
     }
-    
+
     
     // Driver Code 
     /*

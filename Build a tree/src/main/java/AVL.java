@@ -10,8 +10,11 @@ public class AVL {
         } 
     } 
     
-    Node root; 
-  
+    Node root;
+    int[] array = new int[15];
+    int index = 0;
+    int count = 0;
+
     // A utility function to get the height of the tree 
     int height(Node N) { 
         if (N == null) 
@@ -68,8 +71,7 @@ public class AVL {
   
         return height(N.left) - height(N.right); 
     } 
-    Node insert(Node node, int key) { 
-  
+    Node insert(Node node, int key) {
         /* 1.  Perform the normal BST insertion */
         if (node == null) 
             return (new Node(key)); 
@@ -114,21 +116,65 @@ public class AVL {
         /* return the (unchanged) node pointer */
         return node; 
     }
+
+    void addCount(){
+        count++;
+    }
+
+    /** Functions to count number of nodes **/
+    public int countNodes()
+    {
+        return count;
+    }
+
+    void preorder()
+    {
+        preorderRec(root,0);
+        index = 0;
+    }
     // A utility function to print preorder traversal 
     // of the tree. 
     // The function also prints height of every node 
-    void preOrder(Node node) { 
-        if (node != null) { 
-            System.out.print(node.key + " "); 
-            preOrder(node.left); 
-            preOrder(node.right); 
-        } 
-    } 
-    
+    void preorderRec(Node node, int profundidad) {
+        if (profundidad < 4){
+            if (node != null) {
+                add(root.key);
+                preorderRec(root.left,profundidad + 1);
+                preorderRec(root.right, profundidad +1);
+            }
+            else{
+                switch (profundidad) {
+                    case 0:
+                        for (int i = 0; i < 15; i++){
+                            add(0);
+                        }   break;
+                    case 1:
+                        for (int i = 0; i < 7; i++){
+                            add(0);
+                        }   break;
+                    case 2:
+                        for (int i = 0; i < 3; i++){
+                            add(0);
+                        }   break;
+                    case 3:
+                        add(0);
+                        break;
+                }
+            }
+        }
+    }
+
+    void add(int element){
+        array[index] = element;
+        index ++;
+    }
+
+    /*
     public static void main(String[] args) { 
         AVL tree = new AVL(); 
   
         /* Constructing tree given in the above figure */
+    /*
         tree.root = tree.insert(tree.root, 10); 
         tree.root = tree.insert(tree.root, 20); 
         tree.root = tree.insert(tree.root, 30); 
@@ -142,9 +188,9 @@ public class AVL {
           20   40 
          /  \     \ 
         10  25    50 
-        */
+        *//*
         System.out.println("Preorder traversal" + 
                         " of constructed tree is : "); 
         tree.preOrder(tree.root); 
-    }
+    }*/
 }
