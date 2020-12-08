@@ -90,6 +90,7 @@ public class Server implements Observer{
         }
 
         */
+
         
         try{
             ss = new ServerSocket(5000);            

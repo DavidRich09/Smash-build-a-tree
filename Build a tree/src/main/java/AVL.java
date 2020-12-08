@@ -73,7 +73,7 @@ public class AVL {
     } 
     Node insert(Node node, int key) {
         /* 1.  Perform the normal BST insertion */
-        if (node == null) 
+        if (node == null)
             return (new Node(key)); 
   
         if (key < node.key) 
@@ -138,9 +138,9 @@ public class AVL {
     void preorderRec(Node node, int profundidad) {
         if (profundidad < 4){
             if (node != null) {
-                add(root.key);
-                preorderRec(root.left,profundidad + 1);
-                preorderRec(root.right, profundidad +1);
+                add(node.key);
+                preorderRec(node.left,profundidad + 1);
+                preorderRec(node.right, profundidad +1);
             }
             else{
                 switch (profundidad) {
@@ -168,6 +168,7 @@ public class AVL {
         array[index] = element;
         index ++;
     }
+
 
     /*
     public static void main(String[] args) { 
