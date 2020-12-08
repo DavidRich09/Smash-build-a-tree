@@ -87,14 +87,14 @@ public class FacadeGame : MonoBehaviour
             hijo.SetActive(true);
         }
 
-        if (Objectplayer3.activeSelf)
+        if (ControllerSelection3.GetInstancia().gameObject.activeSelf)
         {
             GameObject hijo = Objectplayer3.transform.GetChild(5).gameObject;
 
             hijo.SetActive(true);
         }
 
-        if (Objectplayer4.activeSelf)
+        if (ControllerSelection4.GetInstancia().gameObject.activeSelf)
         {
             GameObject hijo = Objectplayer4.transform.GetChild(5).gameObject;
 
@@ -119,14 +119,14 @@ public class FacadeGame : MonoBehaviour
             hijo.SetActive(true);
         }
 
-        if (Objectplayer3.activeSelf)
+        if (ControllerSelection3.GetInstancia().gameObject.activeSelf)
         {
             GameObject hijo = Objectplayer3.transform.GetChild(7).gameObject;
 
             hijo.SetActive(true);
         }
 
-        if (Objectplayer4.activeSelf)
+        if (ControllerSelection4.GetInstancia().gameObject.activeSelf)
         {
             GameObject hijo = Objectplayer4.transform.GetChild(7).gameObject;
 
@@ -151,14 +151,14 @@ public class FacadeGame : MonoBehaviour
             hijo.SetActive(true);
         }
 
-        if (Objectplayer3.activeSelf)
+        if (ControllerSelection3.GetInstancia().gameObject.activeSelf)
         {
             GameObject hijo = Objectplayer3.transform.GetChild(6).gameObject;
 
             hijo.SetActive(true);
         }
 
-        if (Objectplayer4.activeSelf)
+        if (ControllerSelection4.GetInstancia().gameObject.activeSelf)
         {
             GameObject hijo = Objectplayer4.transform.GetChild(6).gameObject;
 
@@ -183,14 +183,14 @@ public class FacadeGame : MonoBehaviour
             hijo.SetActive(true);
         }
 
-        if (Objectplayer3.activeSelf)
+        if (ControllerSelection3.GetInstancia().gameObject.activeSelf)
         {
             GameObject hijo = Objectplayer3.transform.GetChild(8).gameObject;
 
             hijo.SetActive(true);
         }
 
-        if (Objectplayer4.activeSelf)
+        if (ControllerSelection4.GetInstancia().gameObject.activeSelf)
         {
             GameObject hijo = Objectplayer4.transform.GetChild(8).gameObject;
 
@@ -220,7 +220,7 @@ public class FacadeGame : MonoBehaviour
             hijo.SetActive(false);
         }
 
-        if (Objectplayer3.activeSelf)
+        if (ControllerSelection3.GetInstancia().gameObject.activeSelf)
         {
             GameObject hijo = Objectplayer3.transform.GetChild(5).gameObject;
 
@@ -229,7 +229,7 @@ public class FacadeGame : MonoBehaviour
             hijo.SetActive(false);
         }
 
-        if (Objectplayer4.activeSelf)
+        if (ControllerSelection4.GetInstancia().gameObject.activeSelf)
         {
             GameObject hijo = Objectplayer4.transform.GetChild(5).gameObject;
 

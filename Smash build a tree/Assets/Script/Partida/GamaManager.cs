@@ -106,25 +106,29 @@ public class GamaManager : MonoBehaviour
 
         if(timeleft <= 0)
         {
+            BTS = false;
+            AVL = false;
+            B = false;
+            SPLAY = false;
             if (currentChallenge.Equals("BST"))
             {
                 facadeGame.EndBTS(5);
-                BTS = false;
+                
             }
             else if (currentChallenge.Equals("AVL"))
             {
                 facadeGame.EndAVL(6);
-                AVL = false;
+                
             }
             else if (currentChallenge.Equals("Splay"))
             {
                 facadeGame.EndSPLAY(8);
-                SPLAY = false;
+                
             }
             else if (currentChallenge.Equals("BTree"))
             {
                 facadeGame.EndB(7);
-                B = false;
+               
             }
         }
 

@@ -118,8 +118,9 @@ public class Server implements Observer{
                     challenge_starter = rand.nextInt(10001);
                     //cuando el número aleatorio es igual a 10000, se inicia un challenge de un árbol aleatorio
                     if (challenge_starter == 10000){
-                        //create_challenge(rand.nextInt(4));
-                        create_challenge(1);
+                        create_challenge(rand.nextInt(4));
+
+
                         active_challenge = true;
                         challengestartTime = System.nanoTime();
                         challenge_cooldown = true;
@@ -211,7 +212,7 @@ public class Server implements Observer{
 
                             if (winnersent != true){
                                 if (avl2.countNodes() >= avl1.countNodes()){
-                                    if (bst2.countNodes() >= avl3.countNodes()){
+                                    if (avl2.countNodes() >= avl3.countNodes()){
                                         if (avl2.countNodes() >= avl4.countNodes()){
                                             enviar_mensaje("Ganador"+"#"+"Jugador2"+"#"+"-1",socket);
                                             winnersent = true;
@@ -358,18 +359,20 @@ public class Server implements Observer{
                 }
                 else{
                     if (token_cooldown != true){
-                        token_generator = rand_token.nextInt(20000001);
-                        if (token_generator == 20000000){
+                        token_generator = rand_token.nextInt(2000001);
+                        if (token_generator == 2000000){
                             System.out.print("token generated" + "\n");
                             token_cooldown = true;
                             tokencooldownstartTime = System.nanoTime();
-                            make_token(rand_token.nextInt(8),rand_token_value.nextInt(101));
+                            make_token(rand_token.nextInt(12),rand_token_value.nextInt(101));
+
+
 
 
                         }
                     } else {                        
                             tokencooldownEndTime = System.nanoTime(); 
-                            if (((tokencooldownEndTime - tokencooldownstartTime)/1000000000) > 0.01){
+                            if (((tokencooldownEndTime - tokencooldownstartTime)/1000000000) > 0){
                                 token_cooldown = false;  
                             }                                                                      
                     }
@@ -1349,21 +1352,25 @@ public class Server implements Observer{
         }
         token.set_valor(valor);
         switch (id) {
+            case 9:
             case 0:
                 token.set_tipo("AVL");
                 enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
+            case 10:
             case 1:
                 token.set_tipo("BST");
                 enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
+            case 11:
             case 2:
                 token.set_tipo("BTree");
                 enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
                 //send_token(token)
                 break;
+            case 13:
             case 3:
                 token.set_tipo("Splay");
                 enviar_mensaje("Token" + "#" + token.get_tipo() + "#" + String.valueOf(token.get_valor()), socket);
