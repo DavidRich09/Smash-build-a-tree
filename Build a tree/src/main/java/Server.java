@@ -498,9 +498,8 @@ public class Server implements Observer{
                         case 1:
                             reset_BTree(btree1);
                             btree1 = new BTree();
-                            btree1.preOrder();
                             try {
-                                JsonNode btreenode1 = Json.toJson(btree1.array);
+                                JsonNode btreenode1 = Json.toJson(btree1.preOrder());
                                 String btreenodos1 = Json.generateString(btreenode1, false);
                                 enviar_mensaje("Arbol" + "#Jugador1#" + btreenodos1,socket);
                                 System.out.println(btreenodos1);
@@ -511,9 +510,8 @@ public class Server implements Observer{
                         case 2:
                             reset_BTree(btree2);
                             btree2 = new BTree();
-                            btree2.preOrder();
                             try {
-                                JsonNode btreenode2 = Json.toJson(btree2.array);
+                                JsonNode btreenode2 = Json.toJson(btree2.preOrder());
                                 String btreenodos2 = Json.generateString(btreenode2, false);
                                 enviar_mensaje("Arbol" + "#Jugador2#" + btreenodos2,socket);
                                 System.out.println(btreenodos2);
@@ -524,9 +522,8 @@ public class Server implements Observer{
                         case 3:
                             reset_BTree(btree3);
                             btree3 = new BTree();
-                            btree3.preOrder();
                             try {
-                                JsonNode btreenode3 = Json.toJson(btree3.array);
+                                JsonNode btreenode3 = Json.toJson(btree3.preOrder());
                                 String btreenodos3 = Json.generateString(btreenode3, false);
                                 enviar_mensaje("Arbol" + "#Jugador3#" + btreenodos3,socket);
                                 System.out.println(btreenodos3);
@@ -537,9 +534,8 @@ public class Server implements Observer{
                         case 4:
                             reset_BTree(btree4);
                             btree4 = new BTree();
-                            btree4.preOrder();
                             try {
-                                JsonNode btreenode4 = Json.toJson(btree4.array);
+                                JsonNode btreenode4 = Json.toJson(btree4.preOrder());
                                 String btreenodos4 = Json.generateString(btreenode4, false);
                                 enviar_mensaje("Arbol" + "#Jugador4#" + btreenodos4,socket);
                                 System.out.println(btreenodos4);
@@ -731,9 +727,8 @@ public class Server implements Observer{
                                 case 1:
                                     reset_BTree(btree1);
                                     btree1 = new BTree();
-                                    btree1.preOrder();
                                     try {
-                                        JsonNode btreenode1 = Json.toJson(btree1.array);
+                                        JsonNode btreenode1 = Json.toJson(btree1.preOrder());
                                         String btreenodos1 = Json.generateString(btreenode1, false);
                                         enviar_mensaje("Arbol" + "#Jugador1#" + btreenodos1, socket);
                                         System.out.println(btreenodos1);
@@ -744,9 +739,8 @@ public class Server implements Observer{
                                 case 2:
                                     reset_BTree(btree2);
                                     btree2 = new BTree();
-                                    btree2.preOrder();
                                     try {
-                                        JsonNode btreenode2 = Json.toJson(btree2.array);
+                                        JsonNode btreenode2 = Json.toJson(btree2.preOrder());
                                         String btreenodos2 = Json.generateString(btreenode2, false);
                                         enviar_mensaje("Arbol" + "#Jugador2#" + btreenodos2, socket);
                                         System.out.println(btreenodos2);
@@ -757,9 +751,8 @@ public class Server implements Observer{
                                 case 3:
                                     reset_BTree(btree3);
                                     btree3 = new BTree();
-                                    btree3.preOrder();
                                     try {
-                                        JsonNode btreenode3 = Json.toJson(btree3.array);
+                                        JsonNode btreenode3 = Json.toJson(btree3.preOrder());
                                         String btreenodos3 = Json.generateString(btreenode3, false);
                                         enviar_mensaje("Arbol" + "#Jugador3#" + btreenodos3, socket);
                                         System.out.println(btreenodos3);
@@ -770,9 +763,8 @@ public class Server implements Observer{
                                 case 4:
                                     reset_BTree(btree4);
                                     btree4 = new BTree();
-                                    btree4.preOrder();
                                     try {
-                                        JsonNode btreenode4 = Json.toJson(btree4.array);
+                                        JsonNode btreenode4 = Json.toJson(btree4.preOrder());
                                         String btreenodos4 = Json.generateString(btreenode4, false);
                                         enviar_mensaje("Arbol" + "#Jugador4#" + btreenodos4, socket);
                                         System.out.println(btreenodos4);
@@ -960,9 +952,8 @@ public class Server implements Observer{
                             switch (player) {
                                 case 1:
                                     btree1.insert(token.get_valor());
-                                    btree1.preOrder();
                                     try {
-                                        JsonNode btreenode1 = Json.toJson(btree1.array);
+                                        JsonNode btreenode1 = Json.toJson(btree1.preOrder());
                                         String btreenodos1 = Json.generateString(btreenode1, false);
                                         enviar_mensaje("Arbol" + "#Jugador1#" + btreenodos1, socket);
                                         System.out.println(btreenodos1);
@@ -972,9 +963,8 @@ public class Server implements Observer{
                                     break;
                                 case 2:
                                     btree2.insert(token.get_valor());
-                                    btree2.preOrder();
                                     try {
-                                        JsonNode btreenode2 = Json.toJson(btree2.array);
+                                        JsonNode btreenode2 = Json.toJson(btree2.preOrder());
                                         String btreenodos2 = Json.generateString(btreenode2, false);
                                         enviar_mensaje("Arbol" + "#Jugador2#" + btreenodos2, socket);
                                         System.out.println(btreenodos2);
@@ -984,9 +974,8 @@ public class Server implements Observer{
                                     break;
                                 case 3:
                                     btree3.insert(token.get_valor());
-                                    btree3.preOrder();
                                     try {
-                                        JsonNode btreenode3 = Json.toJson(btree3.array);
+                                        JsonNode btreenode3 = Json.toJson(btree3.preOrder());
                                         String btreenodos3 = Json.generateString(btreenode3, false);
                                         enviar_mensaje("Arbol" + "#Jugador3#" + btreenodos3, socket);
                                         System.out.println(btreenodos3);
@@ -996,9 +985,8 @@ public class Server implements Observer{
                                     break;
                                 case 4:
                                     btree4.insert(token.get_valor());
-                                    btree4.preOrder();
                                     try {
-                                        JsonNode btreenode4 = Json.toJson(btree4.array);
+                                        JsonNode btreenode4 = Json.toJson(btree4.preOrder());
                                         String btreenodos4 = Json.generateString(btreenode4, false);
                                         enviar_mensaje("Arbol" + "#Jugador4#" + btreenodos4, socket);
                                         System.out.println(btreenodos4);
@@ -1187,9 +1175,8 @@ public class Server implements Observer{
                                 case 1:
                                     reset_BTree(btree1);
                                     btree1 = new BTree();
-                                    btree1.preOrder();
                                     try {
-                                        JsonNode btreenode1 = Json.toJson(btree1.array);
+                                        JsonNode btreenode1 = Json.toJson(btree1.preOrder());
                                         String btreenodos1 = Json.generateString(btreenode1, false);
                                         enviar_mensaje("Arbol" + "#Jugador1#" + btreenodos1, socket);
                                         System.out.println(btreenodos1);
@@ -1200,9 +1187,8 @@ public class Server implements Observer{
                                 case 2:
                                     reset_BTree(btree2);
                                     btree2 = new BTree();
-                                    btree2.preOrder();
                                     try {
-                                        JsonNode btreenode2 = Json.toJson(btree2.array);
+                                        JsonNode btreenode2 = Json.toJson(btree2.preOrder());
                                         String btreenodos2 = Json.generateString(btreenode2, false);
                                         enviar_mensaje("Arbol" + "#Jugador2#" + btreenodos2, socket);
                                         System.out.println(btreenodos2);
@@ -1213,9 +1199,8 @@ public class Server implements Observer{
                                 case 3:
                                     reset_BTree(btree3);
                                     btree3 = new BTree();
-                                    btree3.preOrder();
                                     try {
-                                        JsonNode btreenode3 = Json.toJson(btree3.array);
+                                        JsonNode btreenode3 = Json.toJson(btree3.preOrder());
                                         String btreenodos3 = Json.generateString(btreenode3, false);
                                         enviar_mensaje("Arbol" + "#Jugador3#" + btreenodos3, socket);
                                         System.out.println(btreenodos3);
@@ -1226,9 +1211,8 @@ public class Server implements Observer{
                                 case 4:
                                     reset_BTree(btree4);
                                     btree4 = new BTree();
-                                    btree4.preOrder();
                                     try {
-                                        JsonNode btreenode4 = Json.toJson(btree4.array);
+                                        JsonNode btreenode4 = Json.toJson(btree4.preOrder());
                                         String btreenodos4 = Json.generateString(btreenode4, false);
                                         enviar_mensaje("Arbol" + "#Jugador4#" + btreenodos4, socket);
                                         System.out.println(btreenodos4);
