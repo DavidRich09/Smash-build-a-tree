@@ -669,7 +669,7 @@ public class Server implements Observer{
                     if (avl_challenge == true) {
                         switch(player){
                             case 1:
-                                avl1.insert(avl1.root,token.get_valor());
+                                avl1.root = avl1.insert(avl1.root,token.get_valor());
                                 avl1.addCount();
                                 avl1.preorder();
                                 try {
@@ -682,7 +682,7 @@ public class Server implements Observer{
                                 }
                                 break;
                             case 2:
-                                avl2.insert(avl2.root,token.get_valor());
+                                avl2.root = avl2.insert(avl2.root,token.get_valor());
                                 avl2.addCount();
                                 avl2.preorder();
                                 try {
@@ -695,7 +695,7 @@ public class Server implements Observer{
                                 }
                                 break;
                             case 3:
-                                avl3.insert(avl3.root,token.get_valor());
+                                avl3.root = avl3.insert(avl3.root,token.get_valor());
                                 avl3.addCount();
                                 avl3.preorder();
                                 try {
@@ -708,7 +708,7 @@ public class Server implements Observer{
                                 }
                                 break;
                             case 4:
-                                avl4.insert(avl4.root,token.get_valor());
+                                avl4.root = avl4.insert(avl4.root,token.get_valor());
                                 avl4.addCount();
                                 avl4.preorder();
                                 try {
