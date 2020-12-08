@@ -77,7 +77,10 @@ public class ControllerSelection2 : MonoBehaviour
     }
 
     public void ArbolNodos(int index, int[] listaNodos)
+
     {
+        Debug.Log("Llego Arboles Nodo");
+
         GameObject arbol = transform.GetChild(index).gameObject;
 
         if (index == 5)
@@ -86,17 +89,19 @@ public class ControllerSelection2 : MonoBehaviour
         }
         else if (index == 6)
         {
-            arbol.GetComponent<BTS>().UpdateNodo(listaNodos);
+            arbol.GetComponent<AVL>().UpdateNodo(listaNodos);
         }
         else if (index == 7)
         {
-            arbol.GetComponent<BTS>().UpdateNodo(listaNodos);
+            arbol.GetComponent<B>().UpdateNodo(listaNodos);
         }
         else if (index == 8)
         {
-            arbol.GetComponent<BTS>().UpdateNodo(listaNodos);
+            arbol.GetComponent<SPLAY>().UpdateNodo(listaNodos);
         }
+
     }
+
     public void SumarVida()
     {
         vidas += 1;

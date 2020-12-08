@@ -16,8 +16,8 @@ public class CantidadPlayer : MonoBehaviour
 
         seleccion3 = GameObject.Find("Player3");
         seleccion4 = GameObject.Find("Player4");
-        jugador3 = GameObject.Find("Jugador 3");
-        jugador4 = GameObject.Find("Jugador 4");
+        jugador3 = GameObject.Find("Jugador3");
+        jugador4 = GameObject.Find("Jugador4");
 
     }
 

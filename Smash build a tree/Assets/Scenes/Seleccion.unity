@@ -4033,7 +4033,7 @@ PrefabInstance:
     - target: {fileID: 7092822094793408049, guid: 2d1366d70d13a7f4bb3b5967c283b25b,
         type: 3}
       propertyPath: m_Name
-      value: Jugador 3
+      value: Jugador3
       objectReference: {fileID: 0}
     - target: {fileID: 7092822094793408049, guid: 2d1366d70d13a7f4bb3b5967c283b25b,
         type: 3}
@@ -4868,7 +4868,7 @@ PrefabInstance:
     - target: {fileID: 4226782833675950902, guid: 12754e321b52fd846beed09b62e2d96c,
         type: 3}
       propertyPath: m_Name
-      value: Jugador 4
+      value: Jugador4
       objectReference: {fileID: 0}
     - target: {fileID: 4226782833675950902, guid: 12754e321b52fd846beed09b62e2d96c,
         type: 3}
