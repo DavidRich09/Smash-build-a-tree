@@ -124,4 +124,34 @@ public class ControllerSelection : MonoBehaviour
     {
         return vidas;
     }
+
+
+    public void VaciarArbol(int index)
+    {
+
+        GameObject arbol = transform.GetChild(index).gameObject;
+
+        if (index == 5)
+        {
+            arbol.GetComponent<BTS>().ReiniciarArbol();
+        }
+        else if (index == 6)
+        {
+            arbol.GetComponent<AVL>().ReiniciarArbol();
+        }
+        else if (index == 7)
+        {
+            arbol.GetComponent<B>().ReiniciarArbol();
+        }
+        else if (index == 8)
+        {
+            arbol.GetComponent<SPLAY>().ReiniciarArbol();
+        }
+
+    }
+
+    public void ResetVida()
+    {
+        vidas = 3;
+    }
 }

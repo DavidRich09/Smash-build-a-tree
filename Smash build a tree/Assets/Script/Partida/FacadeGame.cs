@@ -198,11 +198,14 @@ public class FacadeGame : MonoBehaviour
         }
     }
 
-    public void EndBTS()
+    public void EndBTS(int index)
     {
         if (Objectplayer1.activeSelf)
         {
+
             GameObject hijo = Objectplayer1.transform.GetChild(5).gameObject;
+
+            ControllerSelection.GetInstancia().VaciarArbol(index);
 
             hijo.SetActive(false);
 
@@ -212,12 +215,16 @@ public class FacadeGame : MonoBehaviour
         {
             GameObject hijo = Objectplayer2.transform.GetChild(5).gameObject;
 
+            ControllerSelection2.GetInstancia().VaciarArbol(index);
+
             hijo.SetActive(false);
         }
 
         if (Objectplayer3.activeSelf)
         {
             GameObject hijo = Objectplayer3.transform.GetChild(5).gameObject;
+
+            ControllerSelection3.GetInstancia().VaciarArbol(index);
 
             hijo.SetActive(false);
         }
@@ -226,15 +233,19 @@ public class FacadeGame : MonoBehaviour
         {
             GameObject hijo = Objectplayer4.transform.GetChild(5).gameObject;
 
+            ControllerSelection4.GetInstancia().VaciarArbol(index);
+
             hijo.SetActive(false);
         }
     }
 
-    public void EndB()
+    public void EndB(int index)
     {
         if (Objectplayer1.activeSelf)
         {
             GameObject hijo = Objectplayer1.transform.GetChild(7).gameObject;
+
+            ControllerSelection.GetInstancia().VaciarArbol(index);
 
             hijo.SetActive(false);
 
@@ -244,12 +255,16 @@ public class FacadeGame : MonoBehaviour
         {
             GameObject hijo = Objectplayer2.transform.GetChild(7).gameObject;
 
+            ControllerSelection2.GetInstancia().VaciarArbol(index);
+
             hijo.SetActive(false);
         }
 
         if (Objectplayer3.activeSelf)
         {
             GameObject hijo = Objectplayer3.transform.GetChild(7).gameObject;
+
+            ControllerSelection3.GetInstancia().VaciarArbol(index);
 
             hijo.SetActive(false);
         }
@@ -258,15 +273,19 @@ public class FacadeGame : MonoBehaviour
         {
             GameObject hijo = Objectplayer4.transform.GetChild(7).gameObject;
 
+            ControllerSelection4.GetInstancia().VaciarArbol(index);
+
             hijo.SetActive(false);
         }
     }
     
-    public void EndAVL()
+    public void EndAVL(int index)
     {
         if (Objectplayer1.activeSelf)
         {
             GameObject hijo = Objectplayer1.transform.GetChild(6).gameObject;
+
+            ControllerSelection.GetInstancia().VaciarArbol(index);
 
             hijo.SetActive(false);
 
@@ -276,12 +295,16 @@ public class FacadeGame : MonoBehaviour
         {
             GameObject hijo = Objectplayer2.transform.GetChild(6).gameObject;
 
+            ControllerSelection2.GetInstancia().VaciarArbol(index);
+
             hijo.SetActive(false);
         }
 
         if (Objectplayer3.activeSelf)
         {
             GameObject hijo = Objectplayer3.transform.GetChild(6).gameObject;
+
+            ControllerSelection3.GetInstancia().VaciarArbol(index);
 
             hijo.SetActive(false);
         }
@@ -290,15 +313,19 @@ public class FacadeGame : MonoBehaviour
         {
             GameObject hijo = Objectplayer4.transform.GetChild(6).gameObject;
 
+            ControllerSelection4.GetInstancia().VaciarArbol(index);
+
             hijo.SetActive(false);
         }
     }
 
-    public void EndSPLAY()
+    public void EndSPLAY(int index)
     {
         if (Objectplayer1.activeSelf)
         {
             GameObject hijo = Objectplayer1.transform.GetChild(8).gameObject;
+
+            ControllerSelection.GetInstancia().VaciarArbol(index);
 
             hijo.SetActive(false);
 
@@ -308,6 +335,8 @@ public class FacadeGame : MonoBehaviour
         {
             GameObject hijo = Objectplayer2.transform.GetChild(8).gameObject;
 
+            ControllerSelection2.GetInstancia().VaciarArbol(index);
+
             hijo.SetActive(false);
         }
 
@@ -315,12 +344,16 @@ public class FacadeGame : MonoBehaviour
         {
             GameObject hijo = Objectplayer3.transform.GetChild(8).gameObject;
 
+            ControllerSelection3.GetInstancia().VaciarArbol(index);
+
             hijo.SetActive(false);
         }
 
         if (Objectplayer4.activeSelf)
         {
             GameObject hijo = Objectplayer4.transform.GetChild(8).gameObject;
+
+            ControllerSelection4.GetInstancia().VaciarArbol(index);
 
             hijo.SetActive(false);
         }

@@ -44,7 +44,7 @@ public class Token : MonoBehaviour
 
     public void SendToken(string jugador)
     {
-        string mensaje = jugador + "#" + tipo + "#" + valor.ToString();
+        string mensaje ="Token#"+jugador + "#" + tipo + "#" + valor.ToString();
         cliente.EnviarMensaje(mensaje);
     }
 }

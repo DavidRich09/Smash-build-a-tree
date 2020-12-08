@@ -16,6 +16,7 @@ public class GamaManager : MonoBehaviour
     public static GamaManager instancia;
     public Cliente cliente;
     public FacadeGame facadeGame;
+    
 
     public EstadoJuego gamestate = EstadoJuego.inGame;
 
@@ -29,6 +30,8 @@ public class GamaManager : MonoBehaviour
     public Text challengeText;
     public string currentChallenge;
     public Text ganadorDisplay;
+
+    public int jugadores;
 
     public bool ejeccucion;
 
@@ -52,6 +55,18 @@ public class GamaManager : MonoBehaviour
 
         cliente = FindObjectOfType<Cliente>();
 
+        if (ControllerSelection3.GetInstancia().gameObject.activeSelf && ControllerSelection4.GetInstancia().gameObject.activeSelf)
+        {
+            jugadores = 4;
+        }
+        else if (ControllerSelection3.GetInstancia().gameObject.activeSelf && !ControllerSelection4.GetInstancia().gameObject.activeSelf)
+        {
+            jugadores = 3;
+        }
+        else
+        {
+            jugadores = 2;
+        }
         
     }
 
@@ -93,19 +108,19 @@ public class GamaManager : MonoBehaviour
         {
             if (currentChallenge.Equals("BST"))
             {
-                facadeGame.EndBTS();
+                facadeGame.EndBTS(5);
             }
             else if (currentChallenge.Equals("AVL"))
             {
-                facadeGame.EndAVL();
+                facadeGame.EndAVL(6);
             }
             else if (currentChallenge.Equals("Splay"))
             {
-                facadeGame.EndSPLAY();
+                facadeGame.EndSPLAY(8);
             }
             else if (currentChallenge.Equals("BTree"))
             {
-                facadeGame.EndB();
+                facadeGame.EndB(7);
             }
         }
 
@@ -188,5 +203,10 @@ public class GamaManager : MonoBehaviour
     public void QuitarWinner()
     {
         ganadorDisplay.text = "";
+    }
+
+    public int GetJugadores()
+    {
+        return jugadores;
     }
 }

@@ -16105,8 +16105,8 @@ MonoBehaviour:
   timer: {fileID: 1250046825}
   challengeText: {fileID: 2084123644}
   currentChallenge: 
-  ganador: 
   ganadorDisplay: {fileID: 1083791493}
+  jugadores: 0
   ejeccucion: 0
 --- !u!4 &1769666123
 Transform:

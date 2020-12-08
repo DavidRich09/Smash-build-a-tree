@@ -55,6 +55,8 @@ public class Cliente : MonoBehaviour
 
         listen.Connect(connect);
 
+        EnviarMensaje("Empezar#0#0");
+
         while (true)
         {
             byte[] rcvLenBytes = new byte[4];
@@ -64,7 +66,7 @@ public class Cliente : MonoBehaviour
             listen.Receive(rcvBytes);
             String recibido = System.Text.Encoding.ASCII.GetString(rcvBytes);
 
-            Debug.Log(recibido);
+            //Debug.Log(recibido);
 
             mensaje = recibido.Split('#');
 
@@ -77,14 +79,14 @@ public class Cliente : MonoBehaviour
     public void EjeccucionCliente()
     {
 
-        //Debug.Log("cliene");
+        
         switch (mensaje[0])
         {
             case "Reto":
                 GamaManager.GetInstancia().SetTimer();
                 GamaManager.GetInstancia().QuitarWinner();
 
-               // ControllerSelection.GetInstancia().GetPersonajeSeleccionado()[ControllerSelection.GetInstancia()].gameObject;
+                RespawnJugadores(GamaManager.GetInstancia().GetJugadores());
 
                 if (mensaje[1].Equals("BST"))
                 {
@@ -230,5 +232,37 @@ public class Cliente : MonoBehaviour
         byte[] toSendLenBytes = System.BitConverter.GetBytes(toSendLen);
         listen.Send(toSendLenBytes);
         listen.Send(toSendBytes);
+    }
+
+
+    public void RespawnJugadores(int jugadores)
+    {
+        switch (jugadores)
+        {
+            case 2:
+                ControllerSelection.GetInstancia().GetPersonajeSeleccionado()[ControllerSelection.GetInstancia().GetIndex()].SetActive(true);
+                ControllerSelection.GetInstancia().ResetVida();
+                ControllerSelection2.GetInstancia().GetPersonajeSeleccionado()[ControllerSelection2.GetInstancia().GetIndex()].SetActive(true);
+                ControllerSelection2.GetInstancia().ResetVida();
+                break;
+            case 3:
+                ControllerSelection.GetInstancia().GetPersonajeSeleccionado()[ControllerSelection.GetInstancia().GetIndex()].SetActive(true);
+                ControllerSelection.GetInstancia().ResetVida();
+                ControllerSelection2.GetInstancia().GetPersonajeSeleccionado()[ControllerSelection2.GetInstancia().GetIndex()].SetActive(true);
+                ControllerSelection2.GetInstancia().ResetVida();
+                ControllerSelection3.GetInstancia().GetPersonajeSeleccionado()[ControllerSelection3.GetInstancia().GetIndex()].SetActive(true);
+                ControllerSelection3.GetInstancia().ResetVida();
+                break;
+            case 4:
+                ControllerSelection.GetInstancia().GetPersonajeSeleccionado()[ControllerSelection.GetInstancia().GetIndex()].SetActive(true);
+                ControllerSelection.GetInstancia().ResetVida();
+                ControllerSelection2.GetInstancia().GetPersonajeSeleccionado()[ControllerSelection2.GetInstancia().GetIndex()].SetActive(true);
+                ControllerSelection2.GetInstancia().ResetVida();
+                ControllerSelection3.GetInstancia().GetPersonajeSeleccionado()[ControllerSelection3.GetInstancia().GetIndex()].SetActive(true);
+                ControllerSelection3.GetInstancia().ResetVida();
+                ControllerSelection4.GetInstancia().GetPersonajeSeleccionado()[ControllerSelection4.GetInstancia().GetIndex()].SetActive(true);
+                ControllerSelection4.GetInstancia().ResetVida();
+                break;
+        }
     }
 }

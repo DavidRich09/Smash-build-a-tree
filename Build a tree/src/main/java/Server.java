@@ -53,6 +53,7 @@ public class Server implements Observer{
     Splay splay3;
     Splay splay4;
     long challengestartTime;
+    boolean startsending = false;
     
     //lista de nodos que están activos (si existen y ´tienen valor)
     public void start() {
@@ -94,6 +95,9 @@ public class Server implements Observer{
         }
         catch (Exception e){
             //Exceptions
+        }
+        while(!startsending){
+            System.out.println("not sending");
         }
         while (true){
             //while loop para challenges
@@ -191,7 +195,8 @@ public class Server implements Observer{
                             System.out.print("token generated" + "\n");
                             token_cooldown = true;
                             tokencooldownstartTime = System.nanoTime();
-                            make_token(rand_token.nextInt(8),rand_token_value.nextInt(101));
+                            //make_token(rand_token.nextInt(8),rand_token_value.nextInt(101));
+                            make_token(1,rand_token_value.nextInt(101));
 
                         }
                     } else {                        
@@ -427,33 +432,41 @@ public class Server implements Observer{
         String mensplit = String.valueOf(o1);
 
         String[] mensaje = mensplit.split("#");
-        Token tokenplayer = new Token();
-        tokenplayer.set_tipo(mensaje[1]);
-        tokenplayer.set_valor(Integer.parseInt(mensaje[2]));
-        System.out.println(tokenplayer.get_tipo() + tokenplayer.get_valor());
 
-        System.out.println("-----------------");
-        System.out.println(mensplit);
-        System.out.println("-----------------");
 
-        switch (mensaje[0]) {
-            case "Jugador1":
-                modify_tree(tokenplayer, 1);
-                System.out.println("Jugador1");
-                break;
-            case "Jugador2":
-                modify_tree(tokenplayer, 2);
-                System.out.println("Jugador2");
-                break;
-            case "Jugador3":
-                modify_tree(tokenplayer, 3);
-                System.out.println("Jugador3");
-                break;
-            case "Jugador4":
-                modify_tree(tokenplayer, 4);
-                System.out.println("Jugador4");
-                break;
+        if(mensaje[0].equals("Empezar")){
+            startsending = true;
         }
+        else if (mensaje[0].equals("Token")){
+            Token tokenplayer = new Token();
+            tokenplayer.set_tipo(mensaje[2]);
+            tokenplayer.set_valor(Integer.parseInt(mensaje[3]));
+            System.out.println(tokenplayer.get_tipo() + tokenplayer.get_valor());
+
+            System.out.println("-----------------");
+            System.out.println(mensplit);
+            System.out.println("-----------------");
+
+            switch (mensaje[1]) {
+                case "Jugador1":
+                    modify_tree(tokenplayer, 1);
+                    System.out.println("Jugador1");
+                    break;
+                case "Jugador2":
+                    modify_tree(tokenplayer, 2);
+                    System.out.println("Jugador2");
+                    break;
+                case "Jugador3":
+                    modify_tree(tokenplayer, 3);
+                    System.out.println("Jugador3");
+                    break;
+                case "Jugador4":
+                    modify_tree(tokenplayer, 4);
+                    System.out.println("Jugador4");
+                    break;
+            }
+        }
+
 
     }
     
