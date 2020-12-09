@@ -1,5 +1,6 @@
-
-
+/**
+ * Arbol SPLAY
+ */
 public class Splay {
     int[] array = new int[15];
     int index = 0;
@@ -24,9 +25,13 @@ public class Splay {
          root = null;
          count = 0;
      }
- 
-     /** function to insert element */
-     public void insert(int ele)
+
+
+    /**
+     * Inserta un elemento a el arbol
+     * @param ele
+     */
+    public void insert(int ele)
      {
          SplayNode z = root;
          SplayNode p = null;
@@ -50,7 +55,12 @@ public class Splay {
          Splay(z);
          count++;
      }
-     /** rotate **/
+
+    /**
+     * Rota el arbol hacia la derecha
+     * @param c
+     * @param p
+     */
      public void makeLeftChildParent(SplayNode c, SplayNode p)
      {
          if ((c == null) || (p == null) || (p.left != c) || (c.parent != p))
@@ -91,8 +101,11 @@ public class Splay {
          p.right = c.left;
          c.left = p;
      }
- 
-     /** function splay **/
+
+    /**
+     * Vuelve al nuevo nodo el root
+     * @param x
+     */
      private void Splay(SplayNode x)
      {
          while (x.parent != null)
@@ -138,7 +151,7 @@ public class Splay {
          }
          root = x;
      }
- 
+
      /** function to remove element **/
      public void remove(int ele)
      {
@@ -221,9 +234,11 @@ public class Splay {
          }
          return null;
      }
- 
-     /** Function for preorder traversal **/
-     public void preorder()
+
+    /**
+     * Recorre el arbol utilizando preorder
+     */
+    public void preorder()
      {
          preorderRec(root,0);
          index = 0;

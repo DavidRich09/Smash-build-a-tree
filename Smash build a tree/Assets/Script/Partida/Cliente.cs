@@ -140,9 +140,10 @@ public class Cliente : MonoBehaviour
                 break;
 
             case "Poder":
+                Debug.Log(mensaje[1]);
                 if (mensaje[1].Equals("Escudo"))
                 {
-                    tokenSpawner.GetComponent<TokenSpawner>().spawntoken("Esucudo", Convert.ToInt32(mensaje[2]));
+                    tokenSpawner.GetComponent<TokenSpawner>().spawntoken("Escudo", Convert.ToInt32(mensaje[2]));
                 }
                 else if (mensaje[1].Equals("Ataque"))
                 {

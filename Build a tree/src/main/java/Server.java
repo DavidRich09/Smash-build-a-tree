@@ -11,6 +11,10 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
 
+/**
+ * Clase principal server que se encarga del manejo de arboles, tiempo, envio de token y de retos
+ * @see java.util.Observer
+ */
 public class Server implements Observer{
     ServerSocket ss;
     Socket socket;  
@@ -55,7 +59,10 @@ public class Server implements Observer{
     long challengestartTime;
     boolean startsending = false;
     boolean winnersent = false;
-    
+
+    /**
+     * Funcion principal donde corre se crean los retos y se mandan tokens
+     */
     //lista de nodos que están activos (si existen y ´tienen valor)
     public void start() {
         
@@ -365,6 +372,7 @@ public class Server implements Observer{
                             token_cooldown = true;
                             tokencooldownstartTime = System.nanoTime();
                             make_token(rand_token.nextInt(12),rand_token_value.nextInt(101));
+                            //make_token(4,rand_token_value.nextInt(101));
 
 
 
@@ -380,8 +388,13 @@ public class Server implements Observer{
             }
         }
        
-    }    
-    
+    }
+
+    /**
+     * Se encarga de modificar los arboles dependiendo del token y el jugador que hagarro el token
+     * @param token
+     * @param player
+     */
     public void modify_tree(Token token, int player){
         switch(token.get_tipo()){
             case "BST":
@@ -1283,23 +1296,46 @@ public class Server implements Observer{
                 }
         }
     }
-    
+
+    /**
+     * resetea el arbol bst
+     * @param bst
+     */
     public void reset_BST(BST bst){
         bst = null;
     }
-    
+
+
+    /**
+     * resetea el arbol avl
+     * @param avl
+     */
     public void reset_AVL(AVL avl){
         avl = null;
-    }        
-    
+    }
+
+    /**
+     * resetea el arbol B
+     * @param btree
+     */
     public void reset_BTree(BTree btree){
         btree = null;
     }
-    
+
+
+    /**
+     * resetea el arbol splay
+     * @param splay
+     */
     public void reset_Splay(Splay splay){
         splay = null;
     }
-    
+
+
+    /**
+     * Se encarga de iniciar el arbol correspondiente al challenge
+     * @param challenge_type
+     */
     public void create_challenge(int challenge_type){
         switch(challenge_type){
             case 0:
@@ -1345,7 +1381,13 @@ public class Server implements Observer{
                        
         } 
     }
-    
+
+
+    /**
+     * se encarga crear y mandar tokens al juego
+     * @param id
+     * @param valor
+     */
     public void make_token(int id, int valor){
         if (valor == 0){
             valor = 5;
@@ -1398,7 +1440,13 @@ public class Server implements Observer{
                 break;
         }
     }
-    
+
+
+    /**
+     * Utilizando sockets manda el mensaje al juego
+     * @param mensaje
+     * @param socket
+     */
     public void enviar_mensaje(String mensaje, Socket socket){
         try{
             doutput = new DataOutputStream(socket.getOutputStream());
@@ -1415,6 +1463,8 @@ public class Server implements Observer{
             //Exceptions
         }
     }
+
+
 
     @Override
     public void update(Observable o, Object o1) {

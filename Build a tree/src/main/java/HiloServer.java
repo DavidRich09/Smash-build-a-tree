@@ -4,12 +4,21 @@ import java.io.DataInputStream;
 import java.net.Socket;
 import java.util.Observable;
 
+/**
+ * Es el la clase que se encarga de escuchar los mensajes del cliente en un thread
+ * @see java.util.Observable
+ */
 public class HiloServer extends Observable implements Runnable {
     String recibido;
     Socket socket;
     DataInputStream dinput;
     int jugadores;
-    
+
+    /**
+     * Constructor de la clase Hiloserver
+     * @param dinput
+     * @param socket
+     */
     public HiloServer (DataInputStream dinput, Socket socket){
         this.socket = socket;
         this.dinput = dinput;

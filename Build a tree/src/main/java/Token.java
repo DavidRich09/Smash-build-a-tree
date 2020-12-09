@@ -1,9 +1,11 @@
-
-
+/**
+ * Clase token la cual se manda al juego
+ */
 public class Token {
     String tipo;
     int valor;
-    
+
+
     public void set_tipo(String tipo){
         this.tipo = tipo;
     }

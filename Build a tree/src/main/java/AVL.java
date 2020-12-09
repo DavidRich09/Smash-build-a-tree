@@ -1,5 +1,11 @@
+/**
+ * Arbol AVL
+ */
+
 public class AVL {
-    
+    /**
+     * Clase Node para el arbol AVL
+     */
     class Node { 
         int key, height; 
         Node left, right; 
@@ -15,19 +21,35 @@ public class AVL {
     int index = 0;
     int count = 0;
 
+    /**
+     * Retorna la altura del arbol
+     * @param N
+     * @return int
+     */
     // A utility function to get the height of the tree 
     int height(Node N) { 
         if (N == null) 
             return 0; 
   
         return N.height; 
-    } 
-  
+    }
+
+    /**
+     * Retorna el valor mayor
+     * @param a
+     * @param b
+     * @return int
+     */
     // A utility function to get maximum of two integers 
     int max(int a, int b) { 
         return (a > b) ? a : b; 
-    } 
-  
+    }
+
+    /**
+     * Rota el arbol hacia la derecha
+     * @param y
+     * @return Node
+     */
     // A utility function to right rotate subtree rooted with y 
     // See the diagram given above. 
     Node rightRotate(Node y) { 
@@ -44,8 +66,13 @@ public class AVL {
   
         // Return new root 
         return x; 
-    } 
-  
+    }
+
+    /**
+     * Rota el arbol hacia la izquierda
+     * @param x
+     * @return Node
+     */
     // A utility function to left rotate subtree rooted with x 
     // See the diagram given above. 
     Node leftRotate(Node x) { 
@@ -62,8 +89,13 @@ public class AVL {
   
         // Return new root 
         return y; 
-    } 
-  
+    }
+
+    /**
+     * Retorna el balance del nodo
+     * @param N
+     * @return int
+     */
     // Get Balance factor of node N 
     int getBalance(Node N) { 
         if (N == null) 
@@ -117,11 +149,15 @@ public class AVL {
         return node; 
     }
 
+
     void addCount(){
         count++;
     }
 
-    /** Functions to count number of nodes **/
+    /**
+     * Cuenta la cantidad de nodos del arbol
+     * @return count
+     */
     public int countNodes()
     {
         return count;
@@ -164,6 +200,10 @@ public class AVL {
         }
     }
 
+    /**
+     * añade ese elemento a un array
+     * @param element
+     */
     void add(int element){
         array[index] = element;
         index ++;

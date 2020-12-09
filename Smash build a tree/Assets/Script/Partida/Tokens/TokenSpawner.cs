@@ -39,7 +39,8 @@ public class TokenSpawner : MonoBehaviour {
     }
 
     public void spawntoken(string tipo,int valor)
-    {  
+    {
+        Debug.Log(tipo);
         if (tipo.Equals("BST"))
         {
                

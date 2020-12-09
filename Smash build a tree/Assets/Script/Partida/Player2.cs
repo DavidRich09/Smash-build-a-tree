@@ -301,7 +301,7 @@ public class Player2 : MonoBehaviour
                     poderAtaque = true;
                     break;
 
-                case "Shield":
+                case "Escudo":
                     escudo = true;
                     EscudoOBJ.SetActive(true);
                     break;

@@ -1,7 +1,10 @@
-
-
+/**
+ * Arbol BST
+ */
 public class BST {
-    
+    /**
+     * Nodo del arbol BST
+     */
     class Node  
     { 
         int key;         
@@ -25,7 +28,13 @@ public class BST {
     {  
          root = null;  
     }
-    
+
+    /**
+     * Busca si un elemento existe en el arbol
+     * @param root
+     * @param key
+     * @return
+     */
     Boolean search(Node root, int key) 
     { 
         // Base Cases: root is null or key is present at root 
@@ -41,8 +50,12 @@ public class BST {
 
         // Key is smaller than root's key 
         return search(root.left, key); 
-    } 
-    
+    }
+
+    /**
+     * Inserta un nodo en el arbol
+     * @param key
+     */
     // This method mainly calls insertRec() 
     void insert(int key)  
     {  
@@ -50,14 +63,17 @@ public class BST {
         root = insertRec(root, key);
     }
 
-    /** Functions to count number of nodes **/
+    /**
+     * Functions to count number of nodes
+     */
     public int countNodes()
     {
         return count;
     }
     
-    /* A recursive function to  
-       insert a new key in BST */
+    /** A recursive function to
+     * insert a new key in BST
+     */
     Node insertRec(Node root, int key) 
     { 
   
@@ -78,14 +94,18 @@ public class BST {
         /* return the (unchanged) node pointer */
         return root; 
     }
-    
+
+    /**
+     * Recorre el arbol de manera preorder
+     */
     // This method mainly calls InorderRec() 
     void preorder()  
     {  
          preorderRec(root,0);
          index = 0;
     } 
-  
+
+
     // A utility function to  
     // do inorder traversal of BST 
     void preorderRec(Node root, int profundidad) { 

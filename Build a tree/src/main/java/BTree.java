@@ -1,4 +1,6 @@
-
+/**
+ * Arbol B
+ */
 public class BTree {
 
     int[] array0 = new int[2];
@@ -10,7 +12,10 @@ public class BTree {
     int[] array6 = new int[2];
     int count = 0;
 
-
+    /**
+     * Inserta el nodo en el arbol
+     * @param key
+     */
     public void insert(int key){
         if(array0[0] == 0){
             array0[0] = key;
@@ -138,6 +143,10 @@ public class BTree {
         }
     }
 
+    /**
+     * recorre le arbol usando preorder
+     * @return
+     */
     public int[] preOrder(){
         int[] Barray = new int[14];
         Barray[0] = array0[0];
